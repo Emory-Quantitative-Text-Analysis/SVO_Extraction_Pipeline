@@ -7,6 +7,8 @@ import os
 import sys
 import subprocess
 import time
+import inspect
+import traceback
 import re
 import string
 import logging
@@ -35,39 +37,47 @@ def my_handler(type, value, tb):
     """
     Automatically log all uncaught exception to file
     """
-    logger.exception("Uncaught exception: {0}, of type {1}, {2}".format(str(value),type,tb))
+    print('\n'.join(traceback.format_tb(tb=tb)))
+    logger.exception("Uncaught exception: {0}, of type {1}\n Traceback:{2}"
+                     .format(str(value),type,'\n'.join(traceback.format_tb(tb=tb))))
 
 
 # Install exception handler
 sys.excepthook = my_handler
 
 
-def log_var(*args,local=False):
+def log_var(*args):
     """
     Method to simply format logging variables
-    :param args: list of args to log
-    :return:
+    :param args: list of args to log, var for local variable, name for global variables
     """
-    if not local:
-        for k in args:
-            if k in globals() and globals()[k] is not None:
-                if os.path.exists(globals()[k]):
-                    logger.debug("Variable %s set as: %s",k,
-                                 os.path.normpath(os.path.abspath(globals()[k])))
-                else:
-                    logger.debug("Variable %s set as: %s", k,globals()[k])
+    callers_local_vars = inspect.currentframe().f_back.f_locals.items()
+    local_vars = {}
+
+    for var_name, var_val in callers_local_vars:
+
+        if var_val in args:
+            local_vars[var_name] = var_val
+
+    for k,v in local_vars.items():
+        logger.debug("Variable %s set as: %s", k, v)
+
+    for k in args:
+
+        if k not in globals():
+            continue
+
+        elif k in globals() and globals()[k] is not None:
+
+            if os.path.exists(globals()[k]):
+                logger.debug("Variable %s set as: %s",k,
+                             os.path.normpath(os.path.abspath(globals()[k])))
             else:
-                logger.debug("Variables %s is not set yet",k)
-    else:
-        for k in args:
-            if k in locals() and locals()[k] is not None:
-                if os.path.exists(locals()[k]):
-                    logger.debug("Variable %s set as: %s",k,
-                                 os.path.normpath(os.path.abspath(locals()[k])))
-                else:
-                    logger.debug("Variable %s set as: %s", k,locals()[k])
-            else:
-                logger.debug("Variables %s is not set yet",k)
+                logger.debug("Variable %s set as: %s", k,globals()[k])
+
+        else:
+            logger.debug("Variables %s is not set yet",k)
+
 
 
 def exception(_logger):
@@ -117,7 +127,7 @@ DO_NGRAM = False
 def finish_comparison(gui,result=None):
     if result is None:
         result=[]
-    edited = gui.b.get('1.0',tk.END)
+    edited = gui._comparison.b.get('1.0',tk.END)
     result.append(edited)
     gui.root.destroy()
 
@@ -220,11 +230,11 @@ class GUI:
         :param text: list of str to display
         :param label: list label
         """
-        _list = self.List(self,text=text, label=label)
+        self._list = self.List(self,text=text, label=label)
         if self.list_frame is None:
             self.list_frame = tk.Frame(self.root)
-        _list.list_label.pack(padx=30, pady=10, side=tk.LEFT)
-        _list.list.pack(padx=5, pady=10, side=tk.LEFT)
+        self._list.list_label.pack(padx=30, pady=10, side=tk.LEFT)
+        self._list.list.pack(padx=5, pady=10, side=tk.LEFT)
 
     def create_comparison(self, ta=None, tb=None):
         """
@@ -232,21 +242,21 @@ class GUI:
         :param ta: Original text with highlight info of diff
         :param tb: Text to compared to with highlight info of diff
         """
-        _comparison = self.Comparison(self,ta=ta,tb=tb)
+        self._comparison = self.Comparison(self,ta=ta,tb=tb)
         if self.comparison_frame is None:
             self.comparison_frame = tk.Frame(self.root)
-        _comparison.a.pack(padx=5, pady=10, side=tk.LEFT)
-        _comparison.b.pack(padx=5, pady=20, side=tk.LEFT)
+        self._comparison.a.pack(padx=5, pady=10, side=tk.LEFT)
+        self._comparison.b.pack(padx=5, pady=20, side=tk.LEFT)
 
     def create_selection(self,text=None):
         """
         Create selection of list of text
         :param text: list of text to be selected from
         """
-        _selection = self.Selection(self,text=text)
+        self._selection = self.Selection(self,text=text)
         if self.selection_frame is None:
             self.selection_frame = tk.Frame(self.root)
-        _selection.selection.pack(padx=5,pady=10,side=tk.LEFT)
+        self._selection.selection.pack(padx=5,pady=10,side=tk.LEFT)
 
     def create_button(self,*args,text='',callback=None,**kwargs ):
         """
@@ -259,9 +269,11 @@ class GUI:
         """
         self.button = tk.Button(self.root,
                                 text=text,
-                                command=lambda: callback(self,*args,**kwargs))
+                                command=lambda: callback(*kwargs[callback.__name__]))
         self.button.pack()
 
+    def run(self):
+        self.root.mainloop()
 # ======== select input file ========= #
 
 
@@ -445,7 +457,7 @@ def neural_coref(corpus):
                                          file_path = out_path,
                                          tmp_out = corpus.tmp_out
                                          )
-    log_var('out','cleaned_neural_coref')
+    log_var(out_path,cleaned_neural_coref)
     return cleaned_neural_coref
 
 
@@ -470,7 +482,7 @@ def coref(corpus, System = 'statistical'):
     cleaned_coref = clean_up_file(file_name = corpus.file_name+"-"+System+'corefed',
                                      file_path = out_path,
                                      tmp_out = corpus.tmp_out)
-    log_var('out','cleaned_coref')
+    log_var(out_path,cleaned_coref)
     return cleaned_coref
 
 
@@ -516,4 +528,6 @@ def compare_results(origin_text,corefed_text):
 
         origin_display.append(origin_display_tuple)
         corefed_display.append(corefed_display_tuple)
+
+    return origin_display, corefed_display
 

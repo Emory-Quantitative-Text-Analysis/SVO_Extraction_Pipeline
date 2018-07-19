@@ -1,25 +1,21 @@
 import os
 from . import helpers
-print(globals())
 logger = helpers.logger
 
 
 class Corpus:
     def __init__(self,
                  file_path = None,
-                 file_name = None,
-                 output_dir = None,
-                 tmp_out = None,
-                 cleaned_path = None):
+                 output_dir = None):
         """
         Set up variables.
         _:param: allow advanced usage to set path vars
         """
         self.file_path = file_path
-        self.file_name = file_name
+        self.file_name = None
         self.output_dir = output_dir
-        self.tmp_out = tmp_out
-        self.cleaned_path = cleaned_path
+        self.tmp_out = None
+        self.cleaned_path = None
 
 
     def set_up(self):
@@ -27,29 +23,36 @@ class Corpus:
         Set up input file and output path manually
         :return:
         """
-        helpers.show_message(msg = 'Select an input file',level='info')
+        # set up file path and file name
         while True:
             try:
-                self.file_path = helpers.select_file()
-                if not self.file_path: # handle cancel button
-                    logger.warning('User cancel, program killed.')
-                    exit(0)
-                # make sure the input file is valid
+                if not self.file_path:
+                    helpers.show_message(msg='Select an input file', level='info')
+                    self.file_path = helpers.select_file()
+                    if not self.file_path: # handle cancel button
+                        logger.warning('User cancel, program killed.')
+                        exit(0)
+                    # make sure the input file is valid
                 assert os.path.exists(self.file_path) and self.file_path.endswith('.txt')
+                self.file_path = os.path.abspath(self.file_path)
                 break
             except AssertionError:
                 helpers.show_message(msg = 'Select a valid input file',level = 'error')
         self.file_name = os.path.basename(self.file_path)[:-4]
         logger.info('Select %s for SVO extraction.', self.file_name)
-        helpers.show_message(msg = 'Select a output folder',level = 'info')
+
+        # set up output path
         while True:
             try:
-                self.output_dir = helpers.select_file(_dir= True)
                 if not self.output_dir:
-                    logger.warning('User cancel, program killed.')
-                    exit(0)
-                # make sure output path is valid
+                    helpers.show_message(msg='Select a output folder', level='info')
+                    self.output_dir = helpers.select_file(_dir= True)
+                    if not self.output_dir:
+                        logger.warning('User cancel, program killed.')
+                        exit(0)
+                    # make sure output path is valid
                 assert os.path.isdir(self.output_dir)
+                self.output_dir = os.path.abspath(self.output_dir)
                 break
             except AssertionError:
                 helpers.show_message('Please select a valid folder','error')
@@ -102,10 +105,11 @@ class Coref:
         self.coref_files = {}
 
         for each in coref_methods:
-            coref_file = globals()['helpers'][each](self.corpus)
+            coref_file = getattr(helpers,each)(self.corpus)
             self.coref_files[each] = coref_file
 
-        helpers.log_var('corpus','coref_methods','coref_files',local=True)
+        for k,v in self.coref_files.items():
+            logger.info('Coref method: %s, corefed file: %s',k,v)
 
     def compare(self, coref_method, comparison_method=None):
         """
@@ -120,8 +124,9 @@ class Coref:
         corefed_text = open(self.coref_files[coref_method]).read()
         logger.info('Comparing result from %s co-reference method',coref_method)
         if comparison_method is not None:
-            logger.info('Use default comparison method %s',comparison_method)
+            logger.info('Use self-defined comparison method %s',comparison_method)
             return comparison_method(origin_text,corefed_text)
+
         return helpers.compare_results(origin_text,corefed_text)
 
     def display(self,coref_method):
@@ -130,12 +135,16 @@ class Coref:
         :param coref_method: String the name of the co-reference method
         :return: the edited result
         """
-        gui = helpers.GUI(title=('Comparing result from %s',coref_method))
-        logger.info('Displaying result from %s, editing enabled',coref_method)
+        gui = helpers.GUI(title=("Comparing result from {0}".format(coref_method)))
+        logger.info("Displaying result from {0}, editing enabled".format(coref_method))
         origin_display,coref_display = self.compare(coref_method)
+
         gui.create_comparison(ta=origin_display,tb=coref_display)
         result = []
-        gui.create_button(gui,text='Finish',callback=helpers.finish_comparison,result=result)
+        gui.create_button(text='Finish',callback=helpers.finish_comparison,
+                          finish_comparison =(gui,result))
+        gui.run()
+
         return result
 
     def __str__(self):

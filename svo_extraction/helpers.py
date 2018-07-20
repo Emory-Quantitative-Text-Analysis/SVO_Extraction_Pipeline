@@ -12,20 +12,30 @@ import traceback
 import re
 import string
 import logging
+import socket
 import difflib as df
 import tkinter as tk
 
+from contextlib import closing
 from tkinter import Tk,messagebox
 from tkinter.filedialog import askopenfilename,askdirectory
 
-from nltk.stem.wordnet import WordNetLemmatizer
-from nltk import StanfordNERTagger
+from nltk.tree import *
+import nltk.draw
+
+from stanfordcorenlp import StanfordCoreNLP
+
 from .lib.neuralcoref import neuralcoref as nc
 
 # ========================= Variables and  Models ======================== #
+
 # ========== dir variables ========== #
 SRC = os.path.dirname(__file__) # scripts
 LIB = os.path.join(SRC,'lib')
+NLP = os.path.abspath(os.path.join(LIB,
+                                   'edu',
+                                   'stanford',
+                                   'stanford-corenlp-full-2018-02-27'))
 
 # ========= set up logger  ========== #
 logger = logging.getLogger()
@@ -79,7 +89,6 @@ def log_var(*args):
             logger.debug("Variables %s is not set yet",k)
 
 
-
 def exception(_logger):
     """
     A decorator that wraps the passed in function and logs
@@ -101,10 +110,11 @@ def exception(_logger):
         return wrapper
     return _decorator
 
+
 # ========== set up NLP models ======== #
 NER_MODEL = os.path.join(LIB,'./edu/stanford/nlp/models/ner/english.all.3class.distsim.crf.ser.gz')
 NER_JAR = os.path.join(LIB,'./edu/stanford/stanford-ner.jar')
-ner_tagger = StanfordNERTagger(NER_MODEL,NER_JAR)
+# ner_tagger = StanfordNERTagger(NER_MODEL,NER_JAR)
 
 # ======== data variables =========== #
 FILE_NAME = None
@@ -121,18 +131,39 @@ ACTOR_FILTERED = False
 DO_GEPHI = False
 DO_MAP = False
 DO_NGRAM = False
+
+# ===================== Port Checking Utility Method ======================= #
+
+
+def check_socket(host, port):
+    with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
+        if sock.connect_ex((host, port)) == 0:
+            print ("Port is open")
+        else:
+            print ("Port is not open")
+
+
+def get_open_port():
+    # function to find a open port on local host
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind(("",0))
+    s.listen(1)
+    port = s.getsockname()[1]
+    s.close()
+    return port
+
 # ============================ GUI Utility Method =============================== #
 
 
-def finish_comparison(gui,result=''):
-
+def finish_comparison(gui,result):
     edited = gui._comparison.b.get('1.0',tk.END)
-    result += edited
+    result.append(edited)
     gui.root.destroy()
 
-def finish_edit(gui,result=''):
+
+def finish_edit(gui,result):
     edited = gui._list('1.0',tk.END)
-    result += edited
+    result.append(edited)
     gui.root.destroy()
 
 
@@ -419,29 +450,8 @@ def is_title(sentence):
         # print sentence
         return True
 
-def ner_tag_sentence(sentence):
-    # need to set JAVAHOME in syspath
-    while 'JAVAHOME' not in os.environ:
-        show_message(
-            'NER Tagger require the JAVAHOME path to be set, please specify your java.exe file path. Typically it\'s \
-            some where like C:/Program Files/Java/jdk1.8.0_161/bin/java.exe, please use backslash in path:\n',
-            level = 'info'
-            )
-        java_path = select_file()
-        os.environ['JAVAHOME'] = java_path
 
-    while True:
-        try:
-            return ner_tagger.tag(sentence.split())
-        except (LookupError, OSError) as e:
-            logger.exception(str(e)+' occured')
-            java_path = input(
-            'Your JAVAHOME path is not correct, please try specify the path again:\n'
-            )
-        os.environ['JAVAHOME'] = java_path
-
-
-#=========================Coref Utility Method========================#
+# =========================Coref Utility Method======================== #
 def neural_coref(corpus):
     """
     This method uses the neuralCoref library to perform coreference,
@@ -552,4 +562,9 @@ def wordnet_social_actor():
     actors_list = f.read().split('\n')
     f.close()
     return actors_list
+
 # ===================== Parser Tree Utility Method ======================= #
+
+
+def read_tree(tree_representation):
+    return nltk.tree.Tree.fromstring(tree_representation)

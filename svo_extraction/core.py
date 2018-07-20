@@ -16,6 +16,7 @@ class Corpus:
         self.output_dir = output_dir
         self.tmp_out = None
         self.cleaned_path = None
+        self.file_to_use = file_path
 
 
     def set_up(self):
@@ -83,12 +84,13 @@ class Corpus:
             tmp_out = self.tmp_out
         )
         helpers.CLEANED_PATH = self.cleaned_path
+        self.file_to_use = self.cleaned_path
         helpers.log_var('CLEANED_PATH')
-        logger.debug('Corpus %s cleaned up.',self.file_name)
+        logger.debug('Corpus %s cleaned up, file to use now is %s',self.file_name,self.file_to_use)
 
 
     def __str__(self):
-        return 'Corpus '+self.file_name
+        return 'Corpus '+self.file_name+' File using '+self.file_to_use
 
 
 class Coref:
@@ -139,7 +141,7 @@ class Coref:
         gui = helpers.GUI(title=("Comparing result from {0}".format(coref_method)))
         logger.info("Displaying result from {0}, editing enabled".format(coref_method))
         origin_display,coref_display = self.compare(coref_method)
-        result = ''
+        result = []
 
         # GUI to edit the corefed text
         gui.create_comparison(ta=origin_display,tb=coref_display)
@@ -149,9 +151,12 @@ class Coref:
 
         # write result to file
         f = open(self.coref_files[coref_method],'w')
-        f.write(result)
+        print('result is ', result[0])
+        f.write(result[0])
         f.close()
-
+        self.corpus.file_to_use = self.coref_files[coref_method]
+        logger.debug('Corpus %s co-referenced, file to use now is %s',
+                     self.corpus.file_name, self.corpus.file_to_use)
         return self.coref_files[coref_method]
 
     def __str__(self):
@@ -191,16 +196,64 @@ class Actor:
         return
 
 
+class CoreNLP:
+    """
+    Use stanford corenlp to handle NER, co-reference and parser tree.
+    """
+
+    def __init__(self, port=None, path=None, memory=None, corpus=None):
+        self.path = path if path is not None else helpers.NLP
+        self.port = port if port is not None else helpers.get_open_port()
+        self.memory = memory if memory is not None else '1g'
+        self.corpus = corpus
+        self.nlp = helpers.StanfordCoreNLP(self.path,memory=self.memory, port=self.port)
+
+    def set_corpus(self, corpus=None):
+        """
+        Corpus setter wtihout reinitialize the whole nlp server
+        """
+        try:
+            assert isinstance(Corpus,corpus)
+            self.corpus = corpus
+        except AssertionError:
+            exit(1)
+
+    def exec(self,method = 'word_tokenize',sentence = ''):
+        """
+        Exec stanford corenlp method.
+        :param method: choice from
+                        'word_tokenize', 'pos_tag', 'ner', 'parse', 'dependency_parse', 'coref'
+        :param sentence: optional kwarg to process only one sentence instead of the whole corpus
+        :return: path to file holding the result
+        """
+        if sentence == '': # process all sentences in the corpus
+            f = open(self.corpus.file_to_use, 'r')
+            out = open(os.path.join(self.corpus.tmp_out, '{0}.txt'.format(method)), 'w')
+            for line in f.readlines():
+                print(self.nlp.__getattribute__(method)(line),'@',file=out)
+            f.close()
+            out.close()
+            return out
+        else:
+            print(self.nlp.__getattribute__(method)(sentence))
+            self.nlp.close()
+
+
 class SVO:
     """
     Subject - Verb - Object extraction objet.
     """
-    def __init__(self, tree = None):
+    def __init__(self, tree_representation=None, tree=None):
+        self.tree_representation = tree_representation
         self.tree = tree
         logger.info('Parse tree ')
 
+    def create_tree(self, tree_interpreter = None):
+        """
+        Read string representation of a parse tree into a tree object
+        :param tree_interpreter: a method to read in string and return tree object
+        """
+        self.tree = tree_interpreter(self.tree_representation)
 
-class NER:
-    def __init__(self,corpus = None):
-        self.corpus = corpus
-        logger.info(str(self.corpus),'selected for NER tagging')
+
+

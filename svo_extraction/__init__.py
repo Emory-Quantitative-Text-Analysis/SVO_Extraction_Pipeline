@@ -5,7 +5,7 @@ import subprocess
 import logging
 
 from logging.config import fileConfig
-from .core import Corpus, Coref
+from .core import Corpus, Coref, CoreNLP, SVO,helpers
 from .helpers import logger
 
 SRC = os.path.abspath(os.path.dirname(__file__))

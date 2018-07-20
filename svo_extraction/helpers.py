@@ -124,11 +124,15 @@ DO_NGRAM = False
 # ============================ GUI Utility Method =============================== #
 
 
-def finish_comparison(gui,result=None):
-    if result is None:
-        result=[]
+def finish_comparison(gui,result=''):
+
     edited = gui._comparison.b.get('1.0',tk.END)
-    result.append(edited)
+    result += edited
+    gui.root.destroy()
+
+def finish_edit(gui,result=''):
+    edited = gui._list('1.0',tk.END)
+    result += edited
     gui.root.destroy()
 
 
@@ -531,3 +535,21 @@ def compare_results(origin_text,corefed_text):
 
     return origin_display, corefed_display
 
+# ===================== Social Actor Utility Method ====================== #
+
+
+def wordnet_social_actor():
+    logger.info('Extracting preliminary social actor list from WordNet')
+    tmp = os.getcwd()
+    os.chdir(LIB)
+    logger.warning('Switching to %s folder.', LIB)
+    subprocess.call(['java', 'ExtractSocialActors'])
+    # TODO: mute java rountine print
+    os.chdir(tmp)
+    logger.info(
+        'The verbose explaination of this social actor list can be found in social-actor-list-verbose.txt')
+    f = open(os.path.join(LIB, 'social-actor-list.txt'), 'r')
+    actors_list = f.read().split('\n')
+    f.close()
+    return actors_list
+# ===================== Parser Tree Utility Method ======================= #

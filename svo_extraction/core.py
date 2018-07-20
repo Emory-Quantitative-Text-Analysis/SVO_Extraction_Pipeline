@@ -86,6 +86,7 @@ class Corpus:
         helpers.log_var('CLEANED_PATH')
         logger.debug('Corpus %s cleaned up.',self.file_name)
 
+
     def __str__(self):
         return 'Corpus '+self.file_name
 
@@ -138,17 +139,65 @@ class Coref:
         gui = helpers.GUI(title=("Comparing result from {0}".format(coref_method)))
         logger.info("Displaying result from {0}, editing enabled".format(coref_method))
         origin_display,coref_display = self.compare(coref_method)
+        result = ''
 
+        # GUI to edit the corefed text
         gui.create_comparison(ta=origin_display,tb=coref_display)
-        result = []
         gui.create_button(text='Finish',callback=helpers.finish_comparison,
                           finish_comparison =(gui,result))
         gui.run()
 
-        return result
+        # write result to file
+        f = open(self.coref_files[coref_method],'w')
+        f.write(result)
+        f.close()
+
+        return self.coref_files[coref_method]
 
     def __str__(self):
         return '/n'.join([str(x) for x in self.coref_files])
+
+
+class Actor:
+    """
+    Actor list to filter the SVO triplet
+    """
+
+    def __init__(self):
+        self.actor_filter = None
+        self.actor_list = None
+
+    def get_filter(self, criteria=None):
+        """
+        Get social actors of the corpus.
+        :param criteria: a list of  actors, default is to extract from WordNet
+        :return: a list of social actors from the corpus
+        """
+        if criteria is None:
+            self.actor_filter = helpers.wordnet_social_actor()
+            result = ''
+            # GUI to edit social actors filter
+            helpers.show_message('Please edit social actor list that you wish to use.')
+            gui = helpers.GUI(title='Editing social actor list from WordNet')
+            gui.create_list(text=self.actor_filter, label='Social Actor List')
+            gui.create_button(text='Finish',
+                              command=helpers.finish_edit,
+                              finish_edit=(gui, result))
+
+        else:
+            self.actor_filter = criteria
+
+    def get_actor(self):
+        return
+
+
+class SVO:
+    """
+    Subject - Verb - Object extraction objet.
+    """
+    def __init__(self, tree = None):
+        self.tree = tree
+        logger.info('Parse tree ')
 
 
 class NER:

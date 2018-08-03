@@ -1,11 +1,12 @@
 import os
 import sys
 import spacy
+import nltk
 import subprocess
 import logging
 
 from logging.config import fileConfig
-from .core import Corpus, Coref, CoreNLP, SVO,helpers
+from .core import helpers, Corpus, Coref, CoreNLP, SVO, Sentence
 from .helpers import logger
 
 SRC = os.path.abspath(os.path.dirname(__file__))

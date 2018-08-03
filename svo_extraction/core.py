@@ -220,40 +220,261 @@ class CoreNLP:
 
     def exec(self,method = 'word_tokenize',sentence = ''):
         """
-        Exec stanford corenlp method.
+        Exec stanfordcorenlp method name.
         :param method: choice from
                         'word_tokenize', 'pos_tag', 'ner', 'parse', 'dependency_parse', 'coref'
         :param sentence: optional kwarg to process only one sentence instead of the whole corpus
         :return: path to file holding the result
         """
+        _available_method = ['word_tokenize','ner','pos_tag','parse','dependency_parse','coref']
+
+        if method not in _available_method:
+            logger.warning('This method is not available for stanfordcorenlp, available options are:{0}'.
+                           format('\n'.join(_available_method)))
+
         if sentence == '': # process all sentences in the corpus
+            logger.info('Performing {0} for {1}.'
+                        .format(method,self.corpus.file_name))
+
             f = open(self.corpus.file_to_use, 'r')
-            out = open(os.path.join(self.corpus.tmp_out, '{0}.txt'.format(method)), 'w')
+            out_path = os.path.join(self.corpus.tmp_out,
+                                    '{0}-{1}.txt'.format(self.corpus.file_name,method))
+            out = open(out_path,'w')
+
             for line in f.readlines():
+                # put delimiter into the file to separate sentences.
                 print(self.nlp.__getattribute__(method)(line),'@',file=out)
+
             f.close()
             out.close()
-            return out
-        else:
-            print(self.nlp.__getattribute__(method)(sentence))
-            self.nlp.close()
 
+            return out_path
+        else:
+            result = self.nlp.__getattribute__(method)(sentence)
+
+            return result
+
+    def exit(self):
+
+        self.nlp.close()
+
+
+class Word:
+    """
+    Word object with semantic information and deprel
+    """
+
+    def __init__(self,text,pos=None,ner=None):
+        self.text=text
+        self.pos=pos
+        self.ner=ner
+        self.lemma = text
+
+
+class Sentence:
+    """
+    Sentence object with semantic information tagged.
+    """
+
+    def __init__(self,text,
+                 nlp=None,):
+        """
+        Take the string as input and initialize the sentence object
+        :param text: str, sentence to be processed.
+        """
+        self.text = text
+
+        self.nlp = nlp if nlp is not None else CoreNLP()
+        self.dependency_tree = self.parse_dependency()
+        self.pos_tags = self.pos_tag()
+        self.tokens = self.tokenize()
+        self.parse_tree = self.parse()
+        self.deprel = self.set_dependency_label()
+
+    def parse_dependency(self):
+        """
+        Do dependency parse of the sentence.
+        :param nlp: a CoreNLP object
+        :return: str representation of the dependency parse tree
+        """
+
+        logger.info("Dependency parsing \'{0}\'.".format(self.text))
+
+        deprel =  self.nlp.exec(method='dependency_parse',sentence=self.text)
+
+        return deprel
+
+    def tokenize(self):
+        tags = self.nlp.exec(method='pos_tag', sentence=self.text)
+        # ners = self.nlp.exec(method='ner_tag',sentence=self.text)
+        word_list = []
+        for i in range(len(tags)):
+            word = Word(tags[i][0],pos=self.pos_tags[i][1])
+            lemma = helpers.lemmatize(word.text,'v' if word.pos in helpers.VERB else 'n')
+            word.lemma = lemma
+            word_list.append(word)
+        # print(word_dic)
+        return word_list
+
+    def pos_tag(self):
+        tags = self.nlp.exec(method='pos_tag',sentence=self.text)
+        return tags
+
+    def parse(self):
+        tree_representation = self.nlp.exec(method='parse',sentence=self.text)
+        tree = helpers.read_tree(tree_representation)
+        return tree
+
+    def set_dependency_label(self):
+        """
+        Set up the dependency relationship as a 2D array
+        """
+        matrix = [[None]*len(self.tokens) for _ in range(len(self.tokens))]
+        for i in range(len(matrix)):
+            matrix[i][i] = 'self'
+
+        for label in self.dependency_tree[1:]:
+            deprel = label[0]
+            matrix[label[2] - 1][label[1] - 1] = deprel
+        index = 0
+        for t in self.parse_tree.subtrees(lambda e : e.height() == 2):
+            t.set_deprel(matrix[index])
+            index += 1
+        return matrix
 
 class SVO:
     """
-    Subject - Verb - Object extraction objet.
+    Subject - Verb - Object extraction object for each sentence.
     """
-    def __init__(self, tree_representation=None, tree=None):
-        self.tree_representation = tree_representation
-        self.tree = tree
-        logger.info('Parse tree ')
-
-    def create_tree(self, tree_interpreter = None):
+    def __init__(self, sentence):
         """
-        Read string representation of a parse tree into a tree object
-        :param tree_interpreter: a method to read in string and return tree object
+        Initialize SVO with a string representation of tree or a tree object.
+        :param sentence: Sentence object
+        :param nlp: a CoreNLP object
         """
-        self.tree = tree_interpreter(self.tree_representation)
 
+        self.sentence = sentence
+
+        # Decrypted attributes
+        # self.tree_representation = tree_representation
+        # self.tree_interpreter = tree_interpreter
+        # self.tree = tree
+
+    def extract(self):
+        verb, subj, obj, adj = [],[],[],[]
+        for each in self.sentence.parse_tree.subtrees(lambda t : t.label() == 'VP'):
+            # each.parent().draw()
+            verb = self._find_verbs(each)
+            if each.left_sibling():
+                for s in each.left_sibling():
+                    subj.extend(self._find_subj(s))
+            elif each.parent().label()in ['SBAR','S']:
+                for s in each.parent().left_sibling():
+                    subj.extend(self._find_subj(s))
+            else:
+                each.parent().draw()
+            obj = self._find_obj(each)
+            adj = self._find_adj(each)
+            print(subj,verb,obj,adj)
+
+    def _find_verbs(self,tree):
+        verb_leaves = []
+        for each in tree:
+            if isinstance(each,helpers.ParentedTree):
+                if each.label() in helpers.VERB:
+                    verb_leaves.extend(each.leaves())
+                    continue
+
+                if each.parent().label() == 'VP':
+                    verb_leaves.extend(self._find_verbs(each))
+
+        return verb_leaves
+
+    def _find_subj(self,tree):
+        # find the left siblings labeled with NP, which can be later filtered or altered by deprel
+        subj_leaves = []
+        for each in tree:
+            if isinstance(each,helpers.ParentedTree):
+                if each.label() in helpers.NOUN:
+                    subj_leaves.extend(each.leaves())
+                    continue
+
+                if each.parent().label() in ['PP','NP']:
+                    subj_leaves.extend(self._find_subj(each))
+
+        return subj_leaves
+
+    def _find_obj(self,tree):
+        obj_leaves = []
+        for each in tree:
+            if each.label() in helpers.NOUN:
+                obj_leaves.extend(each.leaves())
+                continue
+            if each.label() in ['PP','NP']:
+                obj_leaves.extend(self._find_obj(each))
+        return obj_leaves
+
+    def _find_adj(self,tree):
+        adj_leaves = []
+        for each in tree:
+            if each.label() in helpers.ADJ:
+                adj_leaves.extend(each.leaves())
+                continue
+            if each.label() == 'ADJP':
+                adj_leaves.extend(self._find_adj(each))
+        return adj_leaves
+    # ==================== Decrypted methods ==============================
+    """
+    def extract(self):
+        index = 0
+        svo_list = []
+        for each in self.sentence.tokens:
+            if each.pos in helpers.VERB:
+                # iterate through all verbs that are not auxiliary verbs
+                verb = each
+                subj = self._find_subject_for_verb(verb)
+                obj = self._find_object_for_verb(verb)
+
+                # TODO: copula case
+
+            index += 1
+        return svo_list
+
+    def _find_subject_for_verb(self,verb):
+        _subj = []
+        
+        index = self.sentence.word_dic[verb.text]
+        i = 0
+        assert verb.pos in helpers.VERB # make sure we are dealing with verbs
+        for each in self.sentence.deprel:
+            if each[index] == 'nsubj':
+                _subj.append(self.sentence.tokens[i])
+            i += 1
+        return _subj
+
+    def _find_object_for_verb(self,verb):
+        _obj = []
+        index = self.sentence.word_dic[verb.text]
+        i = 0
+        for each in self.sentence.deprel:
+            if each[index] == 'dobj':
+                print(each)
+                _obj.append(self.sentence.tokens[i])
+            i += 1
+
+        return _obj
+
+    @classmethod
+    def _check_nmod(cls,deprel):
+        if 'nmod' in deprel:
+            return deprel.index('nmod')
+        return -1
+
+    @classmethod
+    def _check_rcl(cls,deprel):
+        if 'acl:relcl' in deprel:
+            return deprel.index('acl:relcl')
+        return -1
+    """
 
 

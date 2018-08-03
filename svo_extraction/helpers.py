@@ -22,7 +22,7 @@ from tkinter.filedialog import askopenfilename,askdirectory
 
 from nltk.tree import *
 import nltk.draw
-
+from nltk.stem import WordNetLemmatizer
 from stanfordcorenlp import StanfordCoreNLP
 
 from .lib.neuralcoref import neuralcoref as nc
@@ -36,7 +36,17 @@ NLP = os.path.abspath(os.path.join(LIB,
                                    'edu',
                                    'stanford',
                                    'stanford-corenlp-full-2018-02-27'))
+# ========= SVO Rules ==============#
+NOUN = ["NN", "NNP", "NNPS","NNS","PRP"]
+VERB = ["VB","VBD","VBG","VBN", "VBP", "VBZ"]
+ADJ = ["JJ","JJR","JJS"]
+REL_PRP = ["who","whom","that","which"]
 
+SUBJECTS = ["nsubj", "nsubjpass", "csubj", "csubjpass", "agent", "expl"]
+OBJECTS = ["dobj", "dative", "attr", "oprd"]
+
+# TODO: Handle passive tense, we will need dependency parser for this one, but the tree \
+# TODO:       representation can't handle this yet.
 # ========= set up logger  ========== #
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -115,6 +125,7 @@ def exception(_logger):
 NER_MODEL = os.path.join(LIB,'./edu/stanford/nlp/models/ner/english.all.3class.distsim.crf.ser.gz')
 NER_JAR = os.path.join(LIB,'./edu/stanford/stanford-ner.jar')
 # ner_tagger = StanfordNERTagger(NER_MODEL,NER_JAR)
+wnl = WordNetLemmatizer()
 
 # ======== data variables =========== #
 FILE_NAME = None
@@ -565,6 +576,20 @@ def wordnet_social_actor():
 
 # ===================== Parser Tree Utility Method ======================= #
 
+class ParentedTree(nltk.tree.ParentedTree):
+
+    def __init__(self,*args,**kwargs):
+        super(ParentedTree, self).__init__(*args,**kwargs)
+        self.deprel = None
+
+    def set_deprel(self,deprel):
+        self.deprel = deprel
 
 def read_tree(tree_representation):
-    return nltk.tree.Tree.fromstring(tree_representation)
+    tree =  ParentedTree.fromstring(tree_representation)
+    # tree.draw()
+    return tree
+
+def lemmatize(word,pos=None):
+
+    return wnl.lemmatize(word,pos=pos)

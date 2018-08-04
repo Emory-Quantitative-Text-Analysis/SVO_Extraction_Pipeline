@@ -57,7 +57,6 @@ def my_handler(type, value, tb):
     """
     Automatically log all uncaught exception to file
     """
-    print('\n'.join(traceback.format_tb(tb=tb)))
     logger.exception("Uncaught exception: {0}, of type {1}\n Traceback:{2}"
                      .format(str(value),type,'\n'.join(traceback.format_tb(tb=tb))))
 

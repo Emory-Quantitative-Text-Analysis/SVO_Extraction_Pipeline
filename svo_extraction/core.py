@@ -355,29 +355,49 @@ class SVO:
 
         self.sentence = sentence
 
+        self.visited = []
         # Decrypted attributes
         # self.tree_representation = tree_representation
         # self.tree_interpreter = tree_interpreter
         # self.tree = tree
 
     def extract(self):
-        verb, subj, obj, adj = [],[],[],[]
+        """
+        Extract SVO/SVA triplet (not filtered by it's deprel), the algorithm is recursive
+        and should be intuitive, so I will not explain it here.
+        :return:
+        """
+        verb, subj, obj, adj = [], [], [], []
+        svo = []
         for each in self.sentence.parse_tree.subtrees(lambda t : t.label() == 'VP'):
-            # each.parent().draw()
-            verb = self._find_verbs(each)
-            if each.left_sibling():
-                for s in each.left_sibling():
-                    subj.extend(self._find_subj(s))
-            elif each.parent().label()in ['SBAR','S']:
-                for s in each.parent().left_sibling():
-                    subj.extend(self._find_subj(s))
-            else:
-                each.parent().draw()
-            obj = self._find_obj(each)
-            adj = self._find_adj(each)
-            print(subj,verb,obj,adj)
 
-    def _find_verbs(self,tree):
+            tmp_subj = subj
+            if each.treeposition() not in self.visited:
+
+                self.visited.append(each.treeposition())
+                obj = self._find_obj(each)
+                adj = self._find_adj(each)
+                subj = self._find_subj(each.parent())
+
+                if len(subj) == 0 and each.parent().label() in ['S','SBAR']:
+
+                    subj = tmp_subj
+
+                verb = self._find_verbs(each,obj,adj)
+                subj = subj if len(subj) != 0 else ['N/A']
+                obj = obj+adj if (len(obj)!= 0 or len(adj)!=0) else ['N/A']
+                for s in subj:
+                    for v in verb:
+                        for o in obj:
+                            svo.append((s,v,o))
+
+                if len(verb) != 0:
+                    print(subj,verb,obj,adj,flush=True)
+                else:
+                    print('No valid ',flush=True)
+        return svo
+
+    def _find_verbs(self,tree,obj,adj):
         verb_leaves = []
         for each in tree:
             if isinstance(each,helpers.ParentedTree):
@@ -385,8 +405,14 @@ class SVO:
                     verb_leaves.extend(each.leaves())
                     continue
 
-                if each.parent().label() == 'VP':
-                    verb_leaves.extend(self._find_verbs(each))
+                if each.label() == 'VP':
+                    # has child as Verb, parent carries all child's verb leaves
+                    if each.treeposition() not in self.visited:
+                        self.visited.append(each.treeposition())
+                        obj += self._find_obj(each)
+                        adj += self._find_adj(each)
+                        verb_leaves.extend(self._find_verbs(each,obj,adj))
+
 
         return verb_leaves
 
@@ -399,8 +425,11 @@ class SVO:
                     subj_leaves.extend(each.leaves())
                     continue
 
-                if each.parent().label() in ['PP','NP']:
+                if each.label() in ['PP','NP']:
                     subj_leaves.extend(self._find_subj(each))
+
+                if each.label() == 'VP':
+                    break
 
         return subj_leaves
 

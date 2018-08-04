@@ -582,12 +582,37 @@ class ParentedTree(nltk.tree.ParentedTree):
         self.deprel = None
 
     def set_deprel(self,deprel):
+        # set the depandency relationship for this node
+        assert self.height() == 2
         self.deprel = deprel
+
+    def get_index(self):
+        assert self.height() == 2
+        i = 0
+        for each in self.root().subtrees(lambda t: t.height()==2):
+            if each == self:
+                return i
+            i += 1
+        return -1
+
+    def get_deprel(self,tree):
+        # request dependency rel from another tree in the same sentence
+        assert self.height() == tree.height() == 2
+        assert self.root() == tree.root()
+        return self.deprel[tree.get_index()]
+
+
+
+    def get_str(self):
+        assert self.height() == 2
+        return str(''.join(self.leaves()))
+
 
 def read_tree(tree_representation):
     tree =  ParentedTree.fromstring(tree_representation)
     # tree.draw()
     return tree
+
 
 def lemmatize(word,pos=None):
 

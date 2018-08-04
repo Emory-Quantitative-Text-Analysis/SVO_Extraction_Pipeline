@@ -16,8 +16,10 @@ class Corpus:
         self.output_dir = output_dir
         self.tmp_out = None
         self.cleaned_path = None
+        self.corefed_path = None
         self.file_to_use = file_path
 
+        self.svo_triplets = None
 
     def set_up(self):
         """
@@ -88,6 +90,8 @@ class Corpus:
         helpers.log_var('CLEANED_PATH')
         logger.debug('Corpus %s cleaned up, file to use now is %s',self.file_name,self.file_to_use)
 
+    def extract_svo(self):
+        text = open(self.corefed_path).read()
 
     def __str__(self):
         return 'Corpus '+self.file_name+' File using '+self.file_to_use
@@ -367,11 +371,10 @@ class SVO:
         and should be intuitive, so I will not explain it here.
         :return:
         """
-        verb, subj, obj, adj = [], [], [], []
+        verb, subj,tmp_subj, obj, adj = [], [], [], [],[]
         svo = []
         for each in self.sentence.parse_tree.subtrees(lambda t : t.label() == 'VP'):
 
-            tmp_subj = subj
             if each.treeposition() not in self.visited:
 
                 self.visited.append(each.treeposition())
@@ -384,8 +387,20 @@ class SVO:
                     subj = tmp_subj
 
                 verb = self._find_verbs(each,obj,adj)
-                subj = subj if len(subj) != 0 else ['N/A']
-                obj = obj+adj if (len(obj)!= 0 or len(adj)!=0) else ['N/A']
+                v_i = 0 # verb index to mute
+                for v_1 in verb:
+                    for v_2 in verb:
+                        if v_2:
+                            print(v_1.get_str(), v_2.get_str(), v_1.get_deprel(v_2))
+                            if v_1.get_deprel(v_2) == 'aux':
+                                verb[v_i] = None
+                    v_i += 1
+                print(subj,flush=True)
+                tmp_subj = subj
+                subj = [e.get_str() for e in subj] if len(subj) != 0 else ['N/A']
+                obj = [e.get_str() for e in obj+adj] if (len(obj)!= 0 or len(adj)!=0) else ['N/A']
+                verb = [e.get_str() for e in verb if e] if len(verb) != 0 else ['N/A']
+
                 for s in subj:
                     for v in verb:
                         for o in obj:
@@ -402,7 +417,7 @@ class SVO:
         for each in tree:
             if isinstance(each,helpers.ParentedTree):
                 if each.label() in helpers.VERB:
-                    verb_leaves.extend(each.leaves())
+                    verb_leaves.extend(list(each.subtrees(lambda t: t.height() == 2)))
                     continue
 
                 if each.label() == 'VP':
@@ -422,7 +437,7 @@ class SVO:
         for each in tree:
             if isinstance(each,helpers.ParentedTree):
                 if each.label() in helpers.NOUN:
-                    subj_leaves.extend(each.leaves())
+                    subj_leaves.extend(list(each.subtrees(lambda t: t.height() == 2)))
                     continue
 
                 if each.label() in ['PP','NP']:
@@ -437,7 +452,7 @@ class SVO:
         obj_leaves = []
         for each in tree:
             if each.label() in helpers.NOUN:
-                obj_leaves.extend(each.leaves())
+                obj_leaves.extend(list(each.subtrees(lambda t: t.height() == 2)))
                 continue
             if each.label() in ['PP','NP']:
                 obj_leaves.extend(self._find_obj(each))
@@ -447,11 +462,12 @@ class SVO:
         adj_leaves = []
         for each in tree:
             if each.label() in helpers.ADJ:
-                adj_leaves.extend(each.leaves())
+                adj_leaves.extend(list(each.subtrees(lambda t: t.height() == 2)))
                 continue
             if each.label() == 'ADJP':
                 adj_leaves.extend(self._find_adj(each))
         return adj_leaves
+
     # ==================== Decrypted methods ==============================
     """
     def extract(self):

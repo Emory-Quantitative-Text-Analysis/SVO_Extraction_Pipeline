@@ -33,13 +33,15 @@ class BasicTestSuite(unittest.TestCase):
 
 if __name__ == '__main__':
     text = open('./sample/Murphy.txt').read()
-    # text = 'Rows of soldiers wheeled toward the glaring hospital corridor.'
+    # text = 'The anesthetist had warned me that the operating room would feel cold.'
     for each in svo_extraction.helpers.split_into_sentences(text):
         nlp = svo_extraction.CoreNLP(memory='1g')
         sentence = svo_extraction.Sentence(each,nlp=nlp)
         nlp.exit()
         svo = svo_extraction.SVO(sentence)
-        svo.extract()
+        result = svo.extract()
+        for each in result:
+            print(each)
 
 
 

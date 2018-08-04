@@ -90,8 +90,13 @@ class Corpus:
         helpers.log_var('CLEANED_PATH')
         logger.debug('Corpus %s cleaned up, file to use now is %s',self.file_name,self.file_to_use)
 
+    def coref(self):
+        coref = Coref(self)
+        # TODO: GUI to ask for which coref method to use.
+
     def extract_svo(self):
         text = open(self.corefed_path).read()
+
 
     def __str__(self):
         return 'Corpus '+self.file_name+' File using '+self.file_to_use

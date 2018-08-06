@@ -91,12 +91,33 @@ class Corpus:
         logger.debug('Corpus %s cleaned up, file to use now is %s',self.file_name,self.file_to_use)
 
     def coref(self):
+        """
+        Perform Co-reference and set up file to use.
+        """
         coref = Coref(self)
-        # TODO: GUI to ask for which coref method to use.
+        for each in coref.coref_methods:
+            coref.display(each)
+
+        self.file_to_use = coref.choose_coref_method()
 
     def extract_svo(self):
-        text = open(self.corefed_path).read()
+        text = open(self.file_to_use).read()
+        result = []
+        for each in helpers.split_into_sentences(text):
+            nlp = CoreNLP(memory='1g')
+            sentence = Sentence(each, nlp=nlp)
+            nlp.exit()
+            svo = SVO(sentence)
+            result.append(svo.extract())
 
+        for each in result:
+            print(each)
+        # TODO: Write result to file.
+        return result
+
+    def visualize(self):
+        # TODO: Ask which kind of visualization the user want.
+        return
 
     def __str__(self):
         return 'Corpus '+self.file_name+' File using '+self.file_to_use
@@ -167,6 +188,22 @@ class Coref:
         logger.debug('Corpus %s co-referenced, file to use now is %s',
                      self.corpus.file_name, self.corpus.file_to_use)
         return self.coref_files[coref_method]
+
+    def choose_coref_method(self):
+        """
+        Choose which coref method to use
+        :return: corefed file path
+        """
+        gui = helpers.GUI(title = "Choosing coref method to use.")
+        helpers.show_message(msg="Please choose a coref method you wish to use.")
+        logger.info("Choosing coref method")
+        method = None
+        gui.create_options(options = self.coref_methods)
+        gui.create_button(text='Choose',callback=helpers.finish_options,
+                          finish_options = (gui,method))
+        file_to_use = self.coref_files[method]
+
+        return file_to_use
 
     def __str__(self):
         return '/n'.join([str(x) for x in self.coref_files])

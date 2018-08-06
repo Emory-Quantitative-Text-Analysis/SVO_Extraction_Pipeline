@@ -25,6 +25,7 @@ import nltk.draw
 from nltk.stem import WordNetLemmatizer
 from stanfordcorenlp import StanfordCoreNLP
 
+import spacy
 from .lib.neuralcoref import neuralcoref as nc
 
 # ========================= Variables and  Models ======================== #
@@ -125,6 +126,7 @@ NER_MODEL = os.path.join(LIB,'./edu/stanford/nlp/models/ner/english.all.3class.d
 NER_JAR = os.path.join(LIB,'./edu/stanford/stanford-ner.jar')
 # ner_tagger = StanfordNERTagger(NER_MODEL,NER_JAR)
 wnl = WordNetLemmatizer()
+nlp = spacy.load(os.path.join(SRC,'lib','models','en_core_web_sm','en_core_web_sm-2.0.0'))
 
 # ======== data variables =========== #
 FILE_NAME = None
@@ -199,6 +201,14 @@ def finish_select_none(gui,result=None):
     gui.root.destroy()
 
 
+def finish_options(gui,method=''):
+    # TODO: fix access protected attribute
+
+    method = gui._options.variable.get()
+    gui.root.destry()
+
+
+
 class GUI:
     """
     GUI module to assist user interface design.
@@ -255,6 +265,14 @@ class GUI:
             for i in range(len(text)):
                 self.selection.insert(i+1,text[i])
 
+    class Option:
+        def __init__(self,gui,options=None):
+            if options is None:
+                options = []
+            self.variable = tk.StringVar(gui.root)
+            self.variable.set(options[0])
+            self.options = tk.OptionMenu(gui.root,self.variable,options)
+
     def __init__(self,title=''):
         self.root = tk.Tk()
         self.root.title(title)
@@ -268,6 +286,9 @@ class GUI:
 
         # selection frame
         self.selection_frame = None
+
+        # options frame
+        self.options_frame = None
 
     def create_list(self,text=None, label=''):
         """
@@ -302,6 +323,17 @@ class GUI:
         if self.selection_frame is None:
             self.selection_frame = tk.Frame(self.root)
         self._selection.selection.pack(padx=5,pady=10,side=tk.LEFT)
+
+    def create_options(self,options=None):
+        """
+        Create option
+        :param options: list of options that can be selected
+        :return:
+        """
+        self._options = self.Option(self,options=options)
+        if self.options_frame is None:
+            self.options_frame = tk.Frame(self.root)
+        self._options.options.pack()
 
     def create_button(self,*args,text='',callback=None,**kwargs ):
         """
@@ -469,13 +501,14 @@ def neural_coref(corpus):
     TODO: Optimize the model loading process, right now it's trivial
     """
     logger.info('Neural Coreferencing...')
-    coref = nc.Coref()
     out_path = os.path.join(corpus.tmp_out,corpus.file_name+'-neuralcorefed.txt')
     sentences = split_into_sentences(open(corpus.cleaned_path,'r',
                                           encoding='utf-8',errors="ignore").read())
-    coref.continuous_coref(utterances = sentences)
+    nlp = spacy.load('en_coref_md')
+    doc = nlp(''.join(sentences))
     out = open(out_path,'w')
-    out.write('\n'.join(coref.get_resolved_utterances()))
+    print(doc._.coref_resolved)
+    out.write(doc._.coref_resolved)
     out.close()
     cleaned_neural_coref = clean_up_file(file_name = corpus.file_name+'-neuralcorefed',
                                          file_path = out_path,
@@ -483,7 +516,6 @@ def neural_coref(corpus):
                                          )
     log_var(out_path,cleaned_neural_coref)
     return cleaned_neural_coref
-
 
 def coref(corpus, System = 'statistical'):
     """

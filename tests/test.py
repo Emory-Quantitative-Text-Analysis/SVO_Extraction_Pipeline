@@ -13,36 +13,23 @@ class BasicTestSuite(unittest.TestCase):
     """Basic test cases."""
 
     def setUp(self):
-        corpus = svo_extraction.Corpus(file_path='./sample/Murphy.txt',
-                                       output_dir='./sample/out')
+        corpus = svo_extraction.Corpus()
         corpus.set_up()
         corpus.clean_up()
         self.corpus = corpus
-        self.nlp = svo_extraction.CoreNLP(corpus=self.corpus)
 
     def test_work_flow(self):
-
-        #coref = svo_extraction.Coref(corpus)
-        #coref.display('neural_coref')
-        nlp = svo_extraction.CoreNLP(corpus=self.corpus)
-        nlp.exec(method='parse')
+        self.corpus.coref()
+        self.corpus.extract_svo()
 
 
 
 
 
 if __name__ == '__main__':
-    text = open('./sample/Murphy.txt').read()
-    # text = 'The anesthetist had warned me that the operating room would feel cold.'
-    result = []
-    for each in svo_extraction.helpers.split_into_sentences(text):
-        nlp = svo_extraction.CoreNLP(memory='1g')
-        sentence = svo_extraction.Sentence(each,nlp=nlp)
-        nlp.exit()
-        svo = svo_extraction.SVO(sentence)
-        result.append(svo.extract())
-    for each in result:
-        print(each)
+    test_case = BasicTestSuite()
+    test_case.setUp()
+    test_case.test_work_flow()
 
 
 

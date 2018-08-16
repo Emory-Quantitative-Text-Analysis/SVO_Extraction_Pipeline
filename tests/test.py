@@ -13,14 +13,16 @@ class BasicTestSuite(unittest.TestCase):
     """Basic test cases."""
 
     def setUp(self):
-        corpus = svo_extraction.Corpus()
-        corpus.set_up()
-        corpus.clean_up()
-        self.corpus = corpus
+        self.corpus = svo_extraction.Corpus()
+        self.corpus.set_up()
+        self.corpus.clean_up()
+        print(self.corpus)
 
-    def test_work_flow(self):
-        self.corpus.coref()
-        self.corpus.extract_svo()
+    def testCoreNlpPipeline(self):
+        nlp = svo_extraction.CoreNlpPipeline(corpus=self.corpus)
+        nlp.setUp()
+        nlp.interepret_annotation()
+        print(self.corpus.svo_triplets)
 
 
 
@@ -29,7 +31,7 @@ class BasicTestSuite(unittest.TestCase):
 if __name__ == '__main__':
     test_case = BasicTestSuite()
     test_case.setUp()
-    test_case.test_work_flow()
+    test_case.testCoreNlpPipeline()
 
 
 

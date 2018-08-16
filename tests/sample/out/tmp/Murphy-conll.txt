@@ -1,0 +1,1208 @@
+@@@Sentence 0:
+Miracles thicker than fog on flight of No 10607.
+@@@token
+Miracles	NNS	O
+thicker	JJR	O
+than	IN	O
+fog	NN	O
+on	IN	O
+flight	NN	O
+of	IN	O
+No	DT	O
+10607	CD	NUMBER
+.	.	O
+@@@parse
+(ROOT (NP (NP (NNS Miracles)) (NP (NP (JJR thicker)) (PP (IN than) (NP (NP (NN fog)) (PP (IN on) (NP (NP (NN flight)) (PP (IN of) (NP (DT No) (CD 10607)))))))) (. .)))
+@@@dependency
+root(ROOT-0, Miracles-1)
+dep(Miracles-1, thicker-2)
+case(fog-4, than-3)
+nmod(thicker-2, fog-4)
+case(flight-6, on-5)
+nmod(fog-4, flight-6)
+case(10607-9, of-7)
+neg(10607-9, No-8)
+nmod(flight-6, 10607-9)
+punct(Miracles-1, .-10)
+@@@Sentence 1:
+It was the day after Christmas.
+@@@token
+It	PRP	O
+was	VBD	O
+the	DT	O
+day	NN	TIME
+after	IN	O
+Christmas	NNP	DATE
+.	.	O
+@@@parse
+(ROOT (S (NP (PRP It)) (VP (VBD was) (NP (NP (DT the) (NN day)) (PP (IN after) (NP (NNP Christmas))))) (. .)))
+@@@dependency
+root(ROOT-0, day-4)
+nsubj(day-4, It-1)
+cop(day-4, was-2)
+det(day-4, the-3)
+case(Christmas-6, after-5)
+nmod(day-4, Christmas-6)
+punct(day-4, .-7)
+@@@Sentence 2:
+As I was wheeled backward through the glaring hospital corridor, rows of overhead lights looming up behind I like little suns and then fading away to the front, I remember thinking that this day was just 45 years since the day of the five miracles.
+@@@token
+As	IN	O
+I	PRP	O
+was	VBD	O
+wheeled	VBN	O
+backward	RB	O
+through	IN	O
+the	DT	O
+glaring	JJ	O
+hospital	NN	O
+corridor	NN	O
+,	,	O
+rows	NNS	O
+of	IN	O
+overhead	JJ	O
+lights	NNS	O
+looming	VBG	O
+up	RP	O
+behind	IN	O
+I	PRP	O
+like	VBP	O
+little	JJ	O
+suns	NNS	O
+and	CC	O
+then	RB	O
+fading	JJ	O
+away	RB	O
+to	TO	O
+the	DT	O
+front	NN	O
+,	,	O
+I	PRP	O
+remember	VBP	O
+thinking	VBG	O
+that	IN	O
+this	DT	O
+day	NN	TIME
+was	VBD	O
+just	RB	O
+45	CD	DURATION
+years	NNS	DURATION
+since	IN	O
+the	DT	O
+day	NN	TIME
+of	IN	O
+the	DT	O
+five	CD	NUMBER
+miracles	NNS	O
+.	.	O
+@@@parse
+(ROOT (S (S (SBAR (IN As) (S (NP (PRP I)) (VP (VBD was) (VP (VBN wheeled) (ADVP (RB backward)) (PP (IN through) (NP (DT the) (JJ glaring) (NN hospital) (NN corridor))))))) (, ,) (NP (NP (NNS rows)) (PP (IN of) (NP (NP (JJ overhead) (NNS lights)) (VP (VBG looming) (PRT (RP up)) (PP (IN behind) (NP (PRP I))))))) (VP (VBP like) (NP (NP (JJ little) (NNS suns)) (CC and) (NP (RB then) (JJ fading))) (ADVP (RB away) (PP (TO to) (NP (DT the) (NN front)))))) (, ,) (NP (PRP I)) (VP (VBP remember) (S (VP (VBG thinking) (SBAR (IN that) (S (NP (DT this) (NN day)) (VP (VBD was) (NP (QP (RB just) (CD 45)) (NNS years)) (PP (IN since) (NP (NP (DT the) (NN day)) (PP (IN of) (NP (DT the) (CD five) (NNS miracles))))))))))) (. .)))
+@@@dependency
+root(ROOT-0, remember-32)
+mark(wheeled-4, As-1)
+nsubjpass(wheeled-4, I-2)
+auxpass(wheeled-4, was-3)
+advcl(like-20, wheeled-4)
+advmod(wheeled-4, backward-5)
+case(corridor-10, through-6)
+det(corridor-10, the-7)
+amod(corridor-10, glaring-8)
+compound(corridor-10, hospital-9)
+nmod(wheeled-4, corridor-10)
+punct(like-20, ,-11)
+nsubj(like-20, rows-12)
+case(lights-15, of-13)
+amod(lights-15, overhead-14)
+nmod(rows-12, lights-15)
+acl(lights-15, looming-16)
+compound:prt(looming-16, up-17)
+case(I-19, behind-18)
+nmod(looming-16, I-19)
+ccomp(remember-32, like-20)
+amod(suns-22, little-21)
+dobj(like-20, suns-22)
+cc(suns-22, and-23)
+advmod(fading-25, then-24)
+conj(suns-22, fading-25)
+advmod(like-20, away-26)
+case(front-29, to-27)
+det(front-29, the-28)
+nmod(away-26, front-29)
+punct(remember-32, ,-30)
+nsubj(remember-32, I-31)
+xcomp(remember-32, thinking-33)
+mark(years-40, that-34)
+det(day-36, this-35)
+nsubj(years-40, day-36)
+cop(years-40, was-37)
+advmod(45-39, just-38)
+nummod(years-40, 45-39)
+ccomp(thinking-33, years-40)
+case(day-43, since-41)
+det(day-43, the-42)
+nmod(years-40, day-43)
+case(miracles-47, of-44)
+det(miracles-47, the-45)
+nummod(miracles-47, five-46)
+nmod(day-43, miracles-47)
+punct(remember-32, .-48)
+@@@Sentence 3:
+The miracles that had come just after Christmas so long ago.
+@@@token
+The	DT	O
+miracles	NNS	O
+that	WDT	O
+had	VBD	O
+come	VBN	O
+just	RB	O
+after	IN	O
+Christmas	NNP	DATE
+so	RB	O
+long	RB	O
+ago	RB	O
+.	.	O
+@@@parse
+(ROOT (FRAG (NP (NP (DT The) (NNS miracles)) (SBAR (WHNP (WDT that)) (S (VP (VBD had) (VP (VBN come) (ADVP (RB just)) (PP (IN after) (NP (NNP Christmas))) (ADVP (RB so) (RB long) (RB ago))))))) (. .)))
+@@@dependency
+root(ROOT-0, miracles-2)
+det(miracles-2, The-1)
+nsubj(come-5, that-3)
+aux(come-5, had-4)
+acl:relcl(miracles-2, come-5)
+advmod(come-5, just-6)
+case(Christmas-8, after-7)
+nmod(come-5, Christmas-8)
+advmod(ago-11, so-9)
+advmod(ago-11, long-10)
+advmod(come-5, ago-11)
+punct(miracles-2, .-12)
+@@@Sentence 4:
+The anesthetist had warned I that the operating room would feel cold.
+@@@token
+The	DT	O
+anesthetist	NN	O
+had	VBD	O
+warned	VBN	O
+I	PRP	O
+that	IN	O
+the	DT	O
+operating	NN	O
+room	NN	O
+would	MD	O
+feel	VB	O
+cold	JJ	O
+.	.	O
+@@@parse
+(ROOT (S (NP (DT The) (NN anesthetist)) (VP (VBD had) (VP (VBN warned) (NP (PRP I)) (SBAR (IN that) (S (NP (DT the) (NN operating) (NN room)) (VP (MD would) (VP (VB feel) (ADJP (JJ cold)))))))) (. .)))
+@@@dependency
+root(ROOT-0, warned-4)
+det(anesthetist-2, The-1)
+nsubj(warned-4, anesthetist-2)
+aux(warned-4, had-3)
+dobj(warned-4, I-5)
+mark(feel-11, that-6)
+det(room-9, the-7)
+compound(room-9, operating-8)
+nsubj(feel-11, room-9)
+aux(feel-11, would-10)
+ccomp(warned-4, feel-11)
+xcomp(feel-11, cold-12)
+punct(warned-4, .-13)
+@@@Sentence 5:
+The anesthetist came to introduce The anesthetist to I in the little cubicle where I lay on the gurney.
+@@@token
+The	DT	O
+anesthetist	NN	O
+came	VBD	O
+to	TO	O
+introduce	VB	O
+The	DT	O
+anesthetist	NN	O
+to	TO	O
+I	PRP	O
+in	IN	O
+the	DT	O
+little	JJ	O
+cubicle	NN	O
+where	WRB	O
+I	PRP	O
+lay	VBD	O
+on	IN	O
+the	DT	O
+gurney	NN	O
+.	.	O
+@@@parse
+(ROOT (S (NP (DT The) (NN anesthetist)) (VP (VBD came) (S (VP (TO to) (VP (VB introduce) (NP (DT The) (NN anesthetist)) (PP (TO to) (NP (PRP I))) (PP (IN in) (NP (NP (DT the) (JJ little) (NN cubicle)) (SBAR (WHADVP (WRB where)) (S (NP (PRP I)) (VP (VBD lay) (PP (IN on) (NP (DT the) (NN gurney)))))))))))) (. .)))
+@@@dependency
+root(ROOT-0, came-3)
+det(anesthetist-2, The-1)
+nsubj(came-3, anesthetist-2)
+mark(introduce-5, to-4)
+xcomp(came-3, introduce-5)
+det(anesthetist-7, The-6)
+dobj(introduce-5, anesthetist-7)
+case(I-9, to-8)
+nmod(introduce-5, I-9)
+case(cubicle-13, in-10)
+det(cubicle-13, the-11)
+amod(cubicle-13, little-12)
+nmod(introduce-5, cubicle-13)
+advmod(lay-16, where-14)
+nsubj(lay-16, I-15)
+acl:relcl(cubicle-13, lay-16)
+case(gurney-19, on-17)
+det(gurney-19, the-18)
+nmod(lay-16, gurney-19)
+punct(came-3, .-20)
+@@@Sentence 6:
+I's Kathleen, Kathleen, held I's hand and tried to look calm.
+@@@token
+I	PRP	O
+'s	POS	O
+Kathleen	NNP	PERSON
+,	,	O
+Kathleen	NNP	PERSON
+,	,	O
+held	VBD	O
+I	PRP	O
+'s	POS	O
+hand	NN	O
+and	CC	O
+tried	VBD	O
+to	TO	O
+look	VB	O
+calm	NN	O
+.	.	O
+@@@parse
+(ROOT (S (NP (NP (NP (PRP I) (POS 's)) (NNP Kathleen)) (, ,) (NP (NNP Kathleen)) (, ,)) (VP (VP (VBD held) (NP (NP (PRP I) (POS 's)) (NN hand))) (CC and) (VP (VBD tried) (S (VP (TO to) (VP (VB look) (NP (NN calm))))))) (. .)))
+@@@dependency
+root(ROOT-0, held-7)
+nmod:poss(Kathleen-3, I-1)
+case(I-1, 's-2)
+nsubj(held-7, Kathleen-3)
+punct(Kathleen-3, ,-4)
+appos(Kathleen-3, Kathleen-5)
+punct(Kathleen-3, ,-6)
+nmod:poss(hand-10, I-8)
+case(I-8, 's-9)
+dobj(held-7, hand-10)
+cc(held-7, and-11)
+conj(held-7, tried-12)
+mark(look-14, to-13)
+xcomp(tried-12, look-14)
+dobj(look-14, calm-15)
+punct(held-7, .-16)
+@@@Sentence 7:
+But even the corridor already felt cold in I's hospital gown.
+@@@token
+But	CC	O
+even	RB	O
+the	DT	O
+corridor	NN	O
+already	RB	O
+felt	VBD	O
+cold	JJ	O
+in	IN	O
+I	PRP	O
+'s	POS	O
+hospital	NN	O
+gown	NN	O
+.	.	O
+@@@parse
+(ROOT (S (CC But) (NP (RB even) (DT the) (NN corridor)) (ADVP (RB already)) (VP (VBD felt) (ADJP (JJ cold)) (PP (IN in) (NP (NP (PRP I) (POS 's)) (NN hospital) (NN gown)))) (. .)))
+@@@dependency
+root(ROOT-0, felt-6)
+cc(felt-6, But-1)
+advmod(corridor-4, even-2)
+det(corridor-4, the-3)
+nsubj(felt-6, corridor-4)
+advmod(felt-6, already-5)
+xcomp(felt-6, cold-7)
+case(gown-12, in-8)
+nmod:poss(gown-12, I-9)
+case(I-9, 's-10)
+compound(gown-12, hospital-11)
+nmod(felt-6, gown-12)
+punct(felt-6, .-13)
+@@@Sentence 8:
+Everything was in slow motion.
+@@@token
+Everything	NN	O
+was	VBD	O
+in	IN	O
+slow	JJ	O
+motion	NN	O
+.	.	O
+@@@parse
+(ROOT (S (NP (NN Everything)) (VP (VBD was) (PP (IN in) (NP (JJ slow) (NN motion)))) (. .)))
+@@@dependency
+root(ROOT-0, motion-5)
+nsubj(motion-5, Everything-1)
+cop(motion-5, was-2)
+case(motion-5, in-3)
+amod(motion-5, slow-4)
+punct(motion-5, .-6)
+@@@Sentence 9:
+The distance to the operating room was probably only 100 feet, but the trip seemed to take half an hour.
+@@@token
+The	DT	O
+distance	NN	O
+to	TO	O
+the	DT	O
+operating	NN	O
+room	NN	O
+was	VBD	O
+probably	RB	O
+only	RB	O
+100	CD	NUMBER
+feet	NNS	O
+,	,	O
+but	CC	O
+the	DT	O
+trip	NN	O
+seemed	VBD	O
+to	TO	O
+take	VB	O
+half	PDT	O
+an	DT	O
+hour	NN	O
+.	.	O
+@@@parse
+(ROOT (S (S (NP (NP (DT The) (NN distance)) (PP (TO to) (NP (DT the) (NN operating) (NN room)))) (VP (VBD was) (ADVP (RB probably)) (NP (QP (RB only) (CD 100)) (NNS feet)))) (, ,) (CC but) (S (NP (DT the) (NN trip)) (VP (VBD seemed) (S (VP (TO to) (VP (VB take) (NP (PDT half) (DT an) (NN hour))))))) (. .)))
+@@@dependency
+root(ROOT-0, feet-11)
+det(distance-2, The-1)
+nsubj(feet-11, distance-2)
+case(room-6, to-3)
+det(room-6, the-4)
+compound(room-6, operating-5)
+nmod(distance-2, room-6)
+cop(feet-11, was-7)
+advmod(feet-11, probably-8)
+advmod(100-10, only-9)
+nummod(feet-11, 100-10)
+punct(feet-11, ,-12)
+cc(feet-11, but-13)
+det(trip-15, the-14)
+nsubj(seemed-16, trip-15)
+conj(feet-11, seemed-16)
+mark(take-18, to-17)
+xcomp(seemed-16, take-18)
+det:predet(hour-21, half-19)
+det(hour-21, an-20)
+dobj(take-18, hour-21)
+punct(feet-11, .-22)
+@@@Sentence 10:
+I had plenty of time to think.
+@@@token
+I	PRP	O
+had	VBD	O
+plenty	NN	O
+of	IN	O
+time	NN	O
+to	TO	O
+think	VB	O
+.	.	O
+@@@parse
+(ROOT (S (NP (PRP I)) (VP (VBD had) (NP (NP (NN plenty)) (PP (IN of) (NP (NN time))) (S (VP (TO to) (VP (VB think)))))) (. .)))
+@@@dependency
+root(ROOT-0, had-2)
+nsubj(had-2, I-1)
+dobj(had-2, plenty-3)
+case(time-5, of-4)
+nmod(plenty-3, time-5)
+mark(think-7, to-6)
+acl(plenty-3, think-7)
+punct(had-2, .-8)
+@@@Sentence 11:
+I remembered the lucky accident that brought I to this rolling gurney so early on a Tuesday morning the magnetic resonator imaging test that looked for a cause of hearing loss in I's left ear, but found instead, a tumor nestled against the left side of I's brain.
+@@@token
+I	PRP	O
+remembered	VBD	O
+the	DT	O
+lucky	JJ	O
+accident	NN	O
+that	WDT	O
+brought	VBD	O
+I	PRP	O
+to	TO	O
+this	DT	O
+rolling	VBG	O
+gurney	NN	O
+so	RB	O
+early	RB	O
+on	IN	O
+a	DT	O
+Tuesday	NNP	DATE
+morning	NN	TIME
+the	DT	O
+magnetic	JJ	O
+resonator	NN	O
+imaging	NN	O
+test	NN	O
+that	WDT	O
+looked	VBD	O
+for	IN	O
+a	DT	O
+cause	NN	O
+of	IN	O
+hearing	NN	O
+loss	NN	O
+in	IN	O
+I	PRP	O
+'s	POS	O
+left	VBN	O
+ear	NN	O
+,	,	O
+but	CC	O
+found	VBD	O
+instead	RB	O
+,	,	O
+a	DT	O
+tumor	NN	O
+nestled	VBD	O
+against	IN	O
+the	DT	O
+left	JJ	O
+side	NN	O
+of	IN	O
+I	PRP	O
+'s	POS	O
+brain	NN	O
+.	.	O
+@@@parse
+(ROOT (S (S (NP (PRP I)) (VP (VP (VBD remembered) (S (NP (NP (DT the) (JJ lucky) (NN accident)) (SBAR (WHNP (WDT that)) (S (VP (VBD brought) (NP (PRP I)) (PP (TO to) (NP (NP (DT this) (VBG rolling) (NN gurney)) (ADVP (RB so) (RB early) (PP (IN on) (NP (DT a) (NNP Tuesday) (NN morning)))))))))) (NP (NP (DT the) (JJ magnetic) (NN resonator) (NN imaging) (NN test)) (SBAR (WHNP (WDT that)) (S (VP (VBD looked) (PP (IN for) (NP (NP (DT a) (NN cause)) (PP (IN of) (NP (NN hearing) (NN loss))))) (SBAR (IN in) (S (NP (PRP I) (POS 's)) (VP (VBN left) (NP (NN ear))))))))))) (, ,) (CC but) (VP (VBD found) (ADVP (RB instead))))) (, ,) (NP (DT a) (NN tumor)) (VP (VBD nestled) (PP (IN against) (NP (NP (DT the) (JJ left) (NN side)) (PP (IN of) (NP (NP (PRP I) (POS 's)) (NN brain)))))) (. .)))
+@@@dependency
+root(ROOT-0, nestled-44)
+nsubj(remembered-2, I-1)
+ccomp(nestled-44, remembered-2)
+det(accident-5, the-3)
+amod(accident-5, lucky-4)
+nsubj(test-23, accident-5)
+nsubj(brought-7, that-6)
+acl:relcl(accident-5, brought-7)
+dobj(brought-7, I-8)
+case(gurney-12, to-9)
+det(gurney-12, this-10)
+amod(gurney-12, rolling-11)
+nmod(brought-7, gurney-12)
+advmod(early-14, so-13)
+advmod(gurney-12, early-14)
+case(morning-18, on-15)
+det(morning-18, a-16)
+compound(morning-18, Tuesday-17)
+nmod(early-14, morning-18)
+det(test-23, the-19)
+amod(test-23, magnetic-20)
+compound(test-23, resonator-21)
+compound(test-23, imaging-22)
+xcomp(remembered-2, test-23)
+nsubj(looked-25, that-24)
+acl:relcl(test-23, looked-25)
+case(cause-28, for-26)
+det(cause-28, a-27)
+nmod(looked-25, cause-28)
+case(loss-31, of-29)
+compound(loss-31, hearing-30)
+nmod(cause-28, loss-31)
+mark(left-35, in-32)
+nsubj(left-35, I-33)
+case(I-33, 's-34)
+advcl(looked-25, left-35)
+dobj(left-35, ear-36)
+punct(remembered-2, ,-37)
+cc(remembered-2, but-38)
+conj(remembered-2, found-39)
+advmod(found-39, instead-40)
+punct(nestled-44, ,-41)
+det(tumor-43, a-42)
+nsubj(nestled-44, tumor-43)
+case(side-48, against-45)
+det(side-48, the-46)
+amod(side-48, left-47)
+nmod(nestled-44, side-48)
+case(brain-52, of-49)
+nmod:poss(brain-52, I-50)
+case(I-50, 's-51)
+nmod(side-48, brain-52)
+punct(nestled-44, .-53)
+@@@Sentence 12:
+I looked it up in our family medical book, reading about paralysis, blindness, seizures, or worse.
+@@@token
+I	PRP	O
+looked	VBD	O
+it	PRP	O
+up	RP	O
+in	IN	O
+our	PRP$	O
+family	NN	O
+medical	JJ	O
+book	NN	O
+,	,	O
+reading	VBG	O
+about	IN	O
+paralysis	NN	O
+,	,	O
+blindness	NN	O
+,	,	O
+seizures	NNS	O
+,	,	O
+or	CC	O
+worse	JJR	O
+.	.	O
+@@@parse
+(ROOT (S (NP (PRP I)) (VP (VBD looked) (NP (PRP it)) (PRT (RP up)) (PP (IN in) (NP (PRP$ our) (NN family) (JJ medical) (NN book))) (, ,) (S (VP (VBG reading) (PP (IN about) (NP (NP (NN paralysis)) (, ,) (NP (NN blindness)) (, ,) (NP (NNS seizures)) (, ,) (CC or) (NP (JJR worse))))))) (. .)))
+@@@dependency
+root(ROOT-0, looked-2)
+nsubj(looked-2, I-1)
+dobj(looked-2, it-3)
+compound:prt(looked-2, up-4)
+case(book-9, in-5)
+nmod:poss(book-9, our-6)
+compound(book-9, family-7)
+amod(book-9, medical-8)
+nmod(looked-2, book-9)
+punct(looked-2, ,-10)
+advcl(looked-2, reading-11)
+case(paralysis-13, about-12)
+nmod(reading-11, paralysis-13)
+punct(paralysis-13, ,-14)
+conj(paralysis-13, blindness-15)
+punct(paralysis-13, ,-16)
+conj(paralysis-13, seizures-17)
+punct(paralysis-13, ,-18)
+cc(paralysis-13, or-19)
+conj(paralysis-13, worse-20)
+punct(looked-2, .-21)
+@@@Sentence 13:
+I remembered the clear, calm voice of Dr John Wright who explained how he was going to cut a hole in I's skull and take it out; I remembered, too, Dr John Wright who explained how he was going to cut a hole in my skull and take it out; I remembered's calm recital of possible aftereffects.
+@@@token
+I	PRP	O
+remembered	VBD	O
+the	DT	O
+clear	JJ	O
+,	,	O
+calm	JJ	O
+voice	NN	O
+of	IN	O
+Dr	NNP	O
+John	NNP	PERSON
+Wright	NNP	PERSON
+who	WP	O
+explained	VBD	O
+how	WRB	O
+he	PRP	O
+was	VBD	O
+going	VBG	O
+to	TO	O
+cut	VB	O
+a	DT	O
+hole	NN	O
+in	IN	O
+I	PRP	O
+'s	POS	O
+skull	NN	O
+and	CC	O
+take	VB	O
+it	PRP	O
+out	RP	O
+;	:	O
+I	PRP	O
+remembered	VBD	O
+,	,	O
+too	RB	O
+,	,	O
+Dr	NNP	O
+John	NNP	PERSON
+Wright	NNP	PERSON
+who	WP	O
+explained	VBD	O
+how	WRB	O
+he	PRP	O
+was	VBD	O
+going	VBG	O
+to	TO	O
+cut	VB	O
+a	DT	O
+hole	NN	O
+in	IN	O
+my	PRP$	O
+skull	NN	O
+and	CC	O
+take	VB	O
+it	PRP	O
+out	RP	O
+;	:	O
+I	PRP	O
+remembered	VBD	O
+'s	POS	O
+calm	JJ	O
+recital	NN	O
+of	IN	O
+possible	JJ	O
+aftereffects	NNS	O
+.	.	O
+@@@parse
+(ROOT (S (S (NP (PRP I)) (VP (VBD remembered) (NP (NP (DT the) (ADJP (JJ clear) (, ,) (JJ calm)) (NN voice)) (PP (IN of) (NP (NP (NNP Dr) (NNP John) (NNP Wright)) (SBAR (WHNP (WP who)) (S (VP (VBD explained) (SBAR (WHADVP (WRB how)) (S (NP (PRP he)) (VP (VBD was) (VP (VBG going) (S (VP (TO to) (VP (VP (VB cut) (NP (NP (DT a) (NN hole)) (PP (IN in) (NP (NP (PRP I) (POS 's)) (NN skull))))) (CC and) (VP (VB take) (NP (PRP it)) (PRT (RP out)))))))))))))))))) (: ;) (S (NP (PRP I)) (VP (VBD remembered) (, ,) (ADVP (RB too)) (, ,) (NP (NP (NNP Dr) (NNP John) (NNP Wright)) (SBAR (WHNP (WP who)) (S (VP (VBD explained) (SBAR (WHADVP (WRB how)) (S (NP (PRP he)) (VP (VBD was) (VP (VBG going) (S (VP (TO to) (VP (VP (VB cut) (NP (NP (DT a) (NN hole)) (PP (IN in) (NP (PRP$ my) (NN skull))))) (CC and) (VP (VB take) (NP (PRP it)) (PRT (RP out)))))))))))))))) (: ;) (S (NP (PRP I)) (VP (VBD remembered) (S (NP (POS 's)) (VP (JJ calm) (NP (NP (NN recital)) (PP (IN of) (NP (JJ possible) (NNS aftereffects)))))))) (. .)))
+@@@dependency
+root(ROOT-0, remembered-2)
+nsubj(remembered-2, I-1)
+det(voice-7, the-3)
+amod(calm-6, clear-4)
+punct(calm-6, ,-5)
+amod(voice-7, calm-6)
+dobj(remembered-2, voice-7)
+case(Wright-11, of-8)
+compound(Wright-11, Dr-9)
+compound(Wright-11, John-10)
+nmod(voice-7, Wright-11)
+nsubj(explained-13, who-12)
+acl:relcl(Wright-11, explained-13)
+advmod(going-17, how-14)
+nsubj(going-17, he-15)
+aux(going-17, was-16)
+ccomp(explained-13, going-17)
+mark(cut-19, to-18)
+xcomp(going-17, cut-19)
+det(hole-21, a-20)
+dobj(cut-19, hole-21)
+case(skull-25, in-22)
+nmod:poss(skull-25, I-23)
+case(I-23, 's-24)
+nmod(hole-21, skull-25)
+cc(cut-19, and-26)
+conj(cut-19, take-27)
+dobj(take-27, it-28)
+compound:prt(take-27, out-29)
+punct(remembered-2, ;-30)
+nsubj(remembered-32, I-31)
+parataxis(remembered-2, remembered-32)
+punct(remembered-32, ,-33)
+advmod(remembered-32, too-34)
+punct(remembered-32, ,-35)
+compound(Wright-38, Dr-36)
+compound(Wright-38, John-37)
+dobj(remembered-32, Wright-38)
+nsubj(explained-40, who-39)
+acl:relcl(Wright-38, explained-40)
+advmod(going-44, how-41)
+nsubj(going-44, he-42)
+aux(going-44, was-43)
+ccomp(explained-40, going-44)
+mark(cut-46, to-45)
+xcomp(going-44, cut-46)
+det(hole-48, a-47)
+dobj(cut-46, hole-48)
+case(skull-51, in-49)
+nmod:poss(skull-51, my-50)
+nmod(hole-48, skull-51)
+cc(cut-46, and-52)
+conj(cut-46, take-53)
+dobj(take-53, it-54)
+compound:prt(take-53, out-55)
+punct(remembered-2, ;-56)
+nsubj(remembered-58, I-57)
+parataxis(remembered-2, remembered-58)
+nsubj(calm-60, 's-59)
+ccomp(remembered-58, calm-60)
+dobj(calm-60, recital-61)
+case(aftereffects-64, of-62)
+amod(aftereffects-64, possible-63)
+nmod(recital-61, aftereffects-64)
+punct(remembered-2, .-65)
+@@@Sentence 14:
+I recalled Kathleen's marvelous calm as Christmas approached, as I frantically graded papers for 150 students at the university and tried to think of everything that needed doing before the operation.
+@@@token
+I	PRP	O
+recalled	VBD	O
+Kathleen	NNP	PERSON
+'s	POS	O
+marvelous	JJ	O
+calm	NN	O
+as	IN	O
+Christmas	NNP	MISC
+approached	VBD	O
+,	,	O
+as	IN	O
+I	PRP	O
+frantically	RB	O
+graded	VBD	O
+papers	NNS	O
+for	IN	O
+150	CD	NUMBER
+students	NNS	O
+at	IN	O
+the	DT	O
+university	NN	O
+and	CC	O
+tried	VBD	O
+to	TO	O
+think	VB	O
+of	IN	O
+everything	NN	O
+that	WDT	O
+needed	VBD	O
+doing	VBG	O
+before	IN	O
+the	DT	O
+operation	NN	O
+.	.	O
+@@@parse
+(ROOT (S (NP (PRP I)) (VP (VBD recalled) (NP (NP (NNP Kathleen) (POS 's)) (JJ marvelous) (NN calm)) (SBAR (IN as) (S (NP (NNP Christmas)) (VP (VBD approached)))) (, ,) (SBAR (IN as) (S (NP (PRP I)) (VP (VP (ADVP (RB frantically)) (VBD graded) (NP (NP (NNS papers)) (PP (IN for) (NP (CD 150) (NNS students)))) (PP (IN at) (NP (DT the) (NN university)))) (CC and) (VP (VBD tried) (S (VP (TO to) (VP (VB think) (PP (IN of) (NP (NP (NN everything)) (SBAR (WHNP (WDT that)) (S (VP (VBD needed) (S (VP (VBG doing) (PP (IN before) (NP (DT the) (NN operation)))))))))))))))))) (. .)))
+@@@dependency
+root(ROOT-0, recalled-2)
+nsubj(recalled-2, I-1)
+nmod:poss(calm-6, Kathleen-3)
+case(Kathleen-3, 's-4)
+amod(calm-6, marvelous-5)
+dobj(recalled-2, calm-6)
+mark(approached-9, as-7)
+nsubj(approached-9, Christmas-8)
+advcl(recalled-2, approached-9)
+punct(recalled-2, ,-10)
+mark(graded-14, as-11)
+nsubj(graded-14, I-12)
+advmod(graded-14, frantically-13)
+advcl(recalled-2, graded-14)
+dobj(graded-14, papers-15)
+case(students-18, for-16)
+nummod(students-18, 150-17)
+nmod(papers-15, students-18)
+case(university-21, at-19)
+det(university-21, the-20)
+nmod(graded-14, university-21)
+cc(graded-14, and-22)
+conj(graded-14, tried-23)
+mark(think-25, to-24)
+xcomp(tried-23, think-25)
+case(everything-27, of-26)
+nmod(think-25, everything-27)
+nsubj(needed-29, that-28)
+acl:relcl(everything-27, needed-29)
+xcomp(needed-29, doing-30)
+case(operation-33, before-31)
+det(operation-33, the-32)
+nmod(doing-30, operation-33)
+punct(recalled-2, .-34)
+@@@Sentence 15:
+I knew, though, that Kathleen was seething with worry.
+@@@token
+I	PRP	O
+knew	VBD	O
+,	,	O
+though	RB	O
+,	,	O
+that	IN	O
+Kathleen	NNP	PERSON
+was	VBD	O
+seething	VBG	O
+with	IN	O
+worry	NN	O
+.	.	O
+@@@parse
+(ROOT (S (NP (PRP I)) (VP (VBD knew) (, ,) (ADVP (RB though)) (, ,) (SBAR (IN that) (S (NP (NNP Kathleen)) (VP (VBD was) (VP (VBG seething) (PP (IN with) (NP (NN worry)))))))) (. .)))
+@@@dependency
+root(ROOT-0, knew-2)
+nsubj(knew-2, I-1)
+punct(knew-2, ,-3)
+advmod(knew-2, though-4)
+punct(knew-2, ,-5)
+mark(seething-9, that-6)
+nsubj(seething-9, Kathleen-7)
+aux(seething-9, was-8)
+ccomp(knew-2, seething-9)
+case(worry-11, with-10)
+nmod(seething-9, worry-11)
+punct(knew-2, .-12)
+@@@Sentence 16:
+Kathleen did not even blanch when I arranged to have Kathleen's signature added to the checking account for a small publishing business I ran outside of university time.
+@@@token
+Kathleen	NNP	PERSON
+did	VBD	O
+not	RB	O
+even	RB	O
+blanch	VB	O
+when	WRB	O
+I	PRP	O
+arranged	VBD	O
+to	TO	O
+have	VB	O
+Kathleen	NNP	PERSON
+'s	POS	O
+signature	NN	O
+added	VBD	O
+to	TO	O
+the	DT	O
+checking	NN	O
+account	NN	O
+for	IN	O
+a	DT	O
+small	JJ	O
+publishing	NN	O
+business	NN	O
+I	PRP	O
+ran	VBD	O
+outside	IN	O
+of	IN	O
+university	NN	O
+time	NN	O
+.	.	O
+@@@parse
+(ROOT (S (S (NP (NNP Kathleen)) (VP (VBD did) (RB not) (ADVP (RB even)) (VP (VB blanch) (SBAR (WHADVP (WRB when)) (S (NP (PRP I)) (VP (VBD arranged) (S (VP (TO to) (VP (VB have) (NP (NP (NP (NNP Kathleen) (POS 's)) (NN signature)) (SBAR (S (VP (VBD added) (PP (TO to) (NP (DT the) (NN checking) (NN account))) (PP (IN for) (NP (DT a) (JJ small) (NN publishing) (NN business)))))))))))))))) (NP (PRP I)) (VP (VBD ran) (ADVP (IN outside)) (PP (IN of) (NP (NN university) (NN time)))) (. .)))
+@@@dependency
+root(ROOT-0, ran-25)
+nsubj(blanch-5, Kathleen-1)
+aux(blanch-5, did-2)
+neg(blanch-5, not-3)
+advmod(blanch-5, even-4)
+dep(ran-25, blanch-5)
+advmod(arranged-8, when-6)
+nsubj(arranged-8, I-7)
+advcl(blanch-5, arranged-8)
+mark(have-10, to-9)
+xcomp(arranged-8, have-10)
+nmod:poss(signature-13, Kathleen-11)
+case(Kathleen-11, 's-12)
+dobj(have-10, signature-13)
+acl:relcl(signature-13, added-14)
+case(account-18, to-15)
+det(account-18, the-16)
+compound(account-18, checking-17)
+nmod(added-14, account-18)
+case(business-23, for-19)
+det(business-23, a-20)
+amod(business-23, small-21)
+compound(business-23, publishing-22)
+nmod(added-14, business-23)
+nsubj(ran-25, I-24)
+advmod(ran-25, outside-26)
+case(time-29, of-27)
+compound(time-29, university-28)
+nmod(ran-25, time-29)
+punct(ran-25, .-30)
+@@@Sentence 17:
+I remembered Christmas Day, with daughter Sheila and son Brian and Brian's Kathleen, Debbie, trying to act as if it were a normal day.
+@@@token
+I	PRP	O
+remembered	VBD	O
+Christmas	NNP	DATE
+Day	NNP	DATE
+,	,	O
+with	IN	O
+daughter	NN	O
+Sheila	NNP	PERSON
+and	CC	O
+son	NN	O
+Brian	NNP	PERSON
+and	CC	O
+Brian	NNP	PERSON
+'s	POS	O
+Kathleen	NNP	PERSON
+,	,	O
+Debbie	NNP	PERSON
+,	,	O
+trying	VBG	O
+to	TO	O
+act	VB	O
+as	IN	O
+if	IN	O
+it	PRP	O
+were	VBD	O
+a	DT	O
+normal	JJ	O
+day	NN	TIME
+.	.	O
+@@@parse
+(ROOT (S (NP (PRP I)) (VP (VBD remembered) (NP (NP (NNP Christmas) (NNP Day) (PRN (, ,) (PP (IN with) (NP (NP (NP (NN daughter) (NNP Sheila)) (CC and) (NP (NN son) (NNP Brian))) (CC and) (NP (NP (NNP Brian) (POS 's)) (NNP Kathleen)))) (, ,)) (NNP Debbie)) (, ,) (VP (VBG trying) (S (VP (TO to) (VP (VB act) (SBAR (IN as) (IN if) (S (NP (PRP it)) (VP (VBD were) (NP (DT a) (JJ normal) (NN day))))))))))) (. .)))
+@@@dependency
+root(ROOT-0, remembered-2)
+nsubj(remembered-2, I-1)
+compound(Debbie-17, Christmas-3)
+compound(Debbie-17, Day-4)
+punct(Sheila-8, ,-5)
+case(Sheila-8, with-6)
+compound(Sheila-8, daughter-7)
+nmod(Debbie-17, Sheila-8)
+cc(Sheila-8, and-9)
+compound(Brian-11, son-10)
+conj(Sheila-8, Brian-11)
+cc(Sheila-8, and-12)
+nmod:poss(Kathleen-15, Brian-13)
+case(Brian-13, 's-14)
+conj(Sheila-8, Kathleen-15)
+punct(Sheila-8, ,-16)
+dobj(remembered-2, Debbie-17)
+punct(Debbie-17, ,-18)
+acl(Debbie-17, trying-19)
+mark(act-21, to-20)
+xcomp(trying-19, act-21)
+mark(day-28, as-22)
+mwe(as-22, if-23)
+nsubj(day-28, it-24)
+cop(day-28, were-25)
+det(day-28, a-26)
+amod(day-28, normal-27)
+advcl(act-21, day-28)
+punct(remembered-2, .-29)
+@@@Sentence 18:
+I felt the gurney shoulder its way through the swinging doors behind I.
+@@@token
+I	PRP	O
+felt	VBD	O
+the	DT	O
+gurney	NN	O
+shoulder	NN	O
+its	PRP$	O
+way	NN	O
+through	IN	O
+the	DT	O
+swinging	VBG	O
+doors	NNS	O
+behind	IN	O
+I	PRP	O
+.	.	O
+@@@parse
+(ROOT (S (NP (PRP I)) (VP (VBD felt) (NP (DT the) (NN gurney) (NN shoulder)) (PP (NP (PRP$ its) (NN way)) (IN through) (NP (NP (DT the) (VBG swinging) (NNS doors)) (PP (IN behind) (NP (PRP I)))))) (. .)))
+@@@dependency
+root(ROOT-0, felt-2)
+nsubj(felt-2, I-1)
+det(shoulder-5, the-3)
+compound(shoulder-5, gurney-4)
+dobj(felt-2, shoulder-5)
+nmod:poss(way-7, its-6)
+nmod(felt-2, way-7)
+case(way-7, through-8)
+det(doors-11, the-9)
+amod(doors-11, swinging-10)
+dep(way-7, doors-11)
+case(I-13, behind-12)
+nmod(doors-11, I-13)
+punct(felt-2, .-14)
+@@@Sentence 19:
+The glare of the operating room surprised I.
+@@@token
+The	DT	O
+glare	NN	O
+of	IN	O
+the	DT	O
+operating	NN	O
+room	NN	O
+surprised	VBD	O
+I	PRP	O
+.	.	O
+@@@parse
+(ROOT (S (NP (NP (DT The) (NN glare)) (PP (IN of) (NP (DT the) (NN operating) (NN room)))) (VP (VBD surprised) (NP (PRP I))) (. .)))
+@@@dependency
+root(ROOT-0, surprised-7)
+det(glare-2, The-1)
+nsubj(surprised-7, glare-2)
+case(room-6, of-3)
+det(room-6, the-4)
+compound(room-6, operating-5)
+nmod(glare-2, room-6)
+dobj(surprised-7, I-8)
+punct(surprised-7, .-9)
+@@@Sentence 20:
+So did the noise: chatter, clatter, rattle.
+@@@token
+So	RB	O
+did	VBD	O
+the	DT	O
+noise	NN	O
+:	:	O
+chatter	NN	O
+,	,	O
+clatter	NN	O
+,	,	O
+rattle	VBP	O
+.	.	O
+@@@parse
+(ROOT (S (S (ADVP (RB So)) (VP (VBD did) (NP (DT the) (NN noise)))) (: :) (S (NP (NP (NN chatter)) (, ,) (NP (NN clatter)) (, ,)) (VP (VBP rattle))) (. .)))
+@@@dependency
+root(ROOT-0, did-2)
+advmod(did-2, So-1)
+det(noise-4, the-3)
+dobj(did-2, noise-4)
+punct(did-2, :-5)
+nsubj(rattle-10, chatter-6)
+punct(chatter-6, ,-7)
+appos(chatter-6, clatter-8)
+punct(chatter-6, ,-9)
+parataxis(did-2, rattle-10)
+punct(did-2, .-11)
+@@@Sentence 21:
+I saw Dr John Wright who explained how he was going to cut a hole in my skull and take it out; I remembered over to the right looking at four bright pictures suspended on the wall.
+@@@token
+I	PRP	O
+saw	VBD	O
+Dr	NNP	O
+John	NNP	PERSON
+Wright	NNP	PERSON
+who	WP	O
+explained	VBD	O
+how	WRB	O
+he	PRP	O
+was	VBD	O
+going	VBG	O
+to	TO	O
+cut	VB	O
+a	DT	O
+hole	NN	O
+in	IN	O
+my	PRP$	O
+skull	NN	O
+and	CC	O
+take	VB	O
+it	PRP	O
+out	RP	O
+;	:	O
+I	PRP	O
+remembered	VBD	O
+over	IN	O
+to	TO	O
+the	DT	O
+right	JJ	O
+looking	VBG	O
+at	IN	O
+four	CD	NUMBER
+bright	JJ	O
+pictures	NNS	O
+suspended	VBN	O
+on	IN	O
+the	DT	O
+wall	NN	O
+.	.	O
+@@@parse
+(ROOT (S (S (NP (PRP I)) (VP (VBD saw) (NP (NP (NNP Dr) (NNP John) (NNP Wright)) (SBAR (WHNP (WP who)) (S (VP (VBD explained) (SBAR (WHADVP (WRB how)) (S (NP (PRP he)) (VP (VBD was) (VP (VBG going) (S (VP (TO to) (VP (VP (VB cut) (NP (NP (DT a) (NN hole)) (PP (IN in) (NP (PRP$ my) (NN skull))))) (CC and) (VP (VB take) (NP (PRP it)) (PRT (RP out)))))))))))))))) (: ;) (S (NP (PRP I)) (VP (VBD remembered) (PP (IN over) (PP (TO to) (NP (DT the) (JJ right)))) (S (VP (VBG looking) (PP (IN at) (NP (NP (CD four) (JJ bright) (NNS pictures)) (VP (VBN suspended) (PP (IN on) (NP (DT the) (NN wall)))))))))) (. .)))
+@@@dependency
+root(ROOT-0, saw-2)
+nsubj(saw-2, I-1)
+compound(Wright-5, Dr-3)
+compound(Wright-5, John-4)
+dobj(saw-2, Wright-5)
+nsubj(explained-7, who-6)
+acl:relcl(Wright-5, explained-7)
+advmod(going-11, how-8)
+nsubj(going-11, he-9)
+aux(going-11, was-10)
+ccomp(explained-7, going-11)
+mark(cut-13, to-12)
+xcomp(going-11, cut-13)
+det(hole-15, a-14)
+dobj(cut-13, hole-15)
+case(skull-18, in-16)
+nmod:poss(skull-18, my-17)
+nmod(hole-15, skull-18)
+cc(cut-13, and-19)
+conj(cut-13, take-20)
+dobj(take-20, it-21)
+compound:prt(take-20, out-22)
+punct(saw-2, ;-23)
+nsubj(remembered-25, I-24)
+parataxis(saw-2, remembered-25)
+case(right-29, over-26)
+case(right-29, to-27)
+det(right-29, the-28)
+nmod(remembered-25, right-29)
+xcomp(remembered-25, looking-30)
+case(pictures-34, at-31)
+nummod(pictures-34, four-32)
+amod(pictures-34, bright-33)
+nmod(looking-30, pictures-34)
+acl(pictures-34, suspended-35)
+case(wall-38, on-36)
+det(wall-38, the-37)
+nmod(suspended-35, wall-38)
+punct(saw-2, .-39)
+@@@Sentence 22:
+I had seen them before: I's own skull, with the bright, pearshaped tumor standing out against the darker background of brain and bone.
+@@@token
+I	PRP	O
+had	VBD	O
+seen	VBN	O
+them	PRP	O
+before	IN	O
+:	:	O
+I	PRP	O
+'s	POS	O
+own	JJ	O
+skull	NN	O
+,	,	O
+with	IN	O
+the	DT	O
+bright	JJ	O
+,	,	O
+pearshaped	JJ	O
+tumor	NN	O
+standing	VBG	O
+out	RP	O
+against	IN	O
+the	DT	O
+darker	JJR	O
+background	NN	O
+of	IN	O
+brain	NN	O
+and	CC	O
+bone	NN	O
+.	.	O
+@@@parse
+(ROOT (S (NP (PRP I)) (VP (VBD had) (VP (VBN seen) (NP (PRP them)) (PP (IN before) (: :) (NP (NP (NP (PRP I) (POS 's)) (JJ own) (NN skull)) (, ,) (PP (IN with) (NP (NP (DT the) (JJ bright) (, ,) (JJ pearshaped) (NN tumor)) (VP (VBG standing) (PRT (RP out)) (PP (IN against) (NP (NP (DT the) (JJR darker) (NN background)) (PP (IN of) (NP (NN brain) (CC and) (NN bone)))))))))))) (. .)))
+@@@dependency
+root(ROOT-0, seen-3)
+nsubj(seen-3, I-1)
+aux(seen-3, had-2)
+dobj(seen-3, them-4)
+case(skull-10, before-5)
+punct(skull-10, :-6)
+nmod:poss(skull-10, I-7)
+case(I-7, 's-8)
+amod(skull-10, own-9)
+nmod(seen-3, skull-10)
+punct(skull-10, ,-11)
+case(tumor-17, with-12)
+det(tumor-17, the-13)
+amod(tumor-17, bright-14)
+punct(tumor-17, ,-15)
+amod(tumor-17, pearshaped-16)
+nmod(skull-10, tumor-17)
+acl(tumor-17, standing-18)
+compound:prt(standing-18, out-19)
+case(background-23, against-20)
+det(background-23, the-21)
+amod(background-23, darker-22)
+nmod(standing-18, background-23)
+case(brain-25, of-24)
+nmod(background-23, brain-25)
+cc(brain-25, and-26)
+conj(brain-25, bone-27)
+punct(seen-3, .-28)
+@@@Sentence 23:
+A clock on the wall said 10 minutes to 8 o'clock.
+@@@token
+A	DT	O
+clock	NN	O
+on	IN	O
+the	DT	O
+wall	NN	O
+said	VBD	O
+10	CD	DURATION
+minutes	NNS	DURATION
+to	TO	O
+8	CD	NUMBER
+o'clock	RB	O
+.	.	O
+@@@parse
+(ROOT (S (NP (NP (DT A) (NN clock)) (PP (IN on) (NP (DT the) (NN wall)))) (VP (VBD said) (NP (CD 10) (NNS minutes)) (PP (TO to) (NP (CD 8) (RB o'clock)))) (. .)))
+@@@dependency
+root(ROOT-0, said-6)
+det(clock-2, A-1)
+nsubj(said-6, clock-2)
+case(wall-5, on-3)
+det(wall-5, the-4)
+nmod(clock-2, wall-5)
+nummod(minutes-8, 10-7)
+dobj(said-6, minutes-8)
+case(8-10, to-9)
+nmod(said-6, 8-10)
+advmod(8-10, o'clock-11)
+punct(said-6, .-12)

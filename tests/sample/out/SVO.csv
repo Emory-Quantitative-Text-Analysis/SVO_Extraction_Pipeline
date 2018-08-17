@@ -1,0 +1,165 @@
+Sentence Index,S,V,O/A,TIME,LOCATION,PERSON
+1,It,was,day,"['day', 'Christmas']",[],[]
+1,It,was,Christmas,"['day', 'Christmas']",[],[]
+2,I,was,hospital,"['day', '45', 'years', 'day']",[],[]
+2,I,was,corridor,"['day', '45', 'years', 'day']",[],[]
+2,lights,looming,I,"['day', '45', 'years', 'day']",[],[]
+2,rows,like,suns,"['day', '45', 'years', 'day']",[],[]
+2,lights,like,suns,"['day', '45', 'years', 'day']",[],[]
+2,I,remember,N/A,"['day', '45', 'years', 'day']",[],[]
+2,I,thinking,N/A,"['day', '45', 'years', 'day']",[],[]
+2,day,was,years,"['day', '45', 'years', 'day']",[],[]
+2,day,was,day,"['day', '45', 'years', 'day']",[],[]
+2,day,was,miracles,"['day', '45', 'years', 'day']",[],[]
+3,N/A,had,Christmas,['Christmas'],[],[]
+4,anesthetist,had,I,[],[],[]
+4,operating,feel,cold,[],[],[]
+4,room,feel,cold,[],[],[]
+5,anesthetist,came,N/A,[],[],[]
+5,anesthetist,introduce,anesthetist,[],[],[]
+5,anesthetist,introduce,I,[],[],[]
+5,anesthetist,introduce,cubicle,[],[],[]
+5,I,lay,gurney,[],[],[]
+6,I,held,I,[],[],"['Kathleen', 'Kathleen']"
+6,I,held,hand,[],[],"['Kathleen', 'Kathleen']"
+6,I,tried,I,[],[],"['Kathleen', 'Kathleen']"
+6,I,tried,hand,[],[],"['Kathleen', 'Kathleen']"
+6,Kathleen,held,I,[],[],"['Kathleen', 'Kathleen']"
+6,Kathleen,held,hand,[],[],"['Kathleen', 'Kathleen']"
+6,Kathleen,tried,I,[],[],"['Kathleen', 'Kathleen']"
+6,Kathleen,tried,hand,[],[],"['Kathleen', 'Kathleen']"
+6,Kathleen,held,I,[],[],"['Kathleen', 'Kathleen']"
+6,Kathleen,held,hand,[],[],"['Kathleen', 'Kathleen']"
+6,Kathleen,tried,I,[],[],"['Kathleen', 'Kathleen']"
+6,Kathleen,tried,hand,[],[],"['Kathleen', 'Kathleen']"
+6,I,look,calm,[],[],"['Kathleen', 'Kathleen']"
+6,Kathleen,look,calm,[],[],"['Kathleen', 'Kathleen']"
+6,Kathleen,look,calm,[],[],"['Kathleen', 'Kathleen']"
+7,corridor,felt,I,[],[],[]
+7,corridor,felt,hospital,[],[],[]
+7,corridor,felt,gown,[],[],[]
+7,corridor,felt,cold,[],[],[]
+8,Everything,was,motion,[],[],[]
+9,distance,was,feet,[],[],[]
+9,operating,was,feet,[],[],[]
+9,room,was,feet,[],[],[]
+9,trip,seemed,N/A,[],[],[]
+9,trip,take,hour,[],[],[]
+10,I,had,plenty,[],[],[]
+10,I,had,time,[],[],[]
+10,I,think,N/A,[],[],[]
+11,I,remembered,N/A,"['Tuesday', 'morning']",[],[]
+11,I,found,N/A,"['Tuesday', 'morning']",[],[]
+11,I,brought,I,"['Tuesday', 'morning']",[],[]
+11,I,brought,gurney,"['Tuesday', 'morning']",[],[]
+11,I,looked,cause,"['Tuesday', 'morning']",[],[]
+11,I,looked,hearing,"['Tuesday', 'morning']",[],[]
+11,I,looked,loss,"['Tuesday', 'morning']",[],[]
+11,I,left,ear,"['Tuesday', 'morning']",[],[]
+11,tumor,nestled,side,"['Tuesday', 'morning']",[],[]
+11,tumor,nestled,I,"['Tuesday', 'morning']",[],[]
+11,tumor,nestled,brain,"['Tuesday', 'morning']",[],[]
+12,I,looked,it,[],[],[]
+12,I,looked,family,[],[],[]
+12,I,looked,book,[],[],[]
+12,I,reading,paralysis,[],[],[]
+12,I,reading,blindness,[],[],[]
+12,I,reading,seizures,[],[],[]
+13,I,remembered,voice,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,I,remembered,Dr,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,I,remembered,John,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,I,remembered,Wright,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,I,explained,N/A,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,was,N/A,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,cut,hole,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,cut,I,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,cut,skull,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,cut,it,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,take,hole,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,take,I,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,take,skull,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,take,it,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,I,remembered,Dr,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,I,remembered,John,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,I,remembered,Wright,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,I,explained,N/A,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,was,N/A,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,going,N/A,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,cut,hole,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,cut,skull,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,cut,it,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,take,hole,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,take,skull,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,he,take,it,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,I,remembered,N/A,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,I,N/A,recital,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,I,N/A,aftereffects,[],[],"['John', 'Wright', 'John', 'Wright']"
+13,I,N/A,calm,[],[],"['John', 'Wright', 'John', 'Wright']"
+14,I,recalled,Kathleen,[],[],['Kathleen']
+14,I,recalled,calm,[],[],['Kathleen']
+14,Christmas,approached,N/A,[],[],['Kathleen']
+14,I,graded,papers,[],[],['Kathleen']
+14,I,graded,students,[],[],['Kathleen']
+14,I,graded,university,[],[],['Kathleen']
+14,I,tried,papers,[],[],['Kathleen']
+14,I,tried,students,[],[],['Kathleen']
+14,I,tried,university,[],[],['Kathleen']
+14,I,think,everything,[],[],['Kathleen']
+14,I,needed,N/A,[],[],['Kathleen']
+14,I,doing,operation,[],[],['Kathleen']
+15,I,knew,N/A,[],[],['Kathleen']
+15,Kathleen,was,worry,[],[],['Kathleen']
+16,Kathleen,did,N/A,[],[],"['Kathleen', 'Kathleen']"
+16,I,arranged,N/A,[],[],"['Kathleen', 'Kathleen']"
+16,I,have,Kathleen,[],[],"['Kathleen', 'Kathleen']"
+16,I,have,signature,[],[],"['Kathleen', 'Kathleen']"
+16,I,added,checking,[],[],"['Kathleen', 'Kathleen']"
+16,I,added,account,[],[],"['Kathleen', 'Kathleen']"
+16,I,added,publishing,[],[],"['Kathleen', 'Kathleen']"
+16,I,added,business,[],[],"['Kathleen', 'Kathleen']"
+16,I,ran,university,[],[],"['Kathleen', 'Kathleen']"
+16,I,ran,time,[],[],"['Kathleen', 'Kathleen']"
+17,I,remembered,Christmas,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']"
+17,I,remembered,Day,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']"
+17,I,remembered,Debbie,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']"
+17,Christmas,trying,N/A,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']"
+17,Day,trying,N/A,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']"
+17,Debbie,trying,N/A,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']"
+17,Christmas,act,N/A,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']"
+17,Day,act,N/A,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']"
+17,Debbie,act,N/A,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']"
+17,it,were,day,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']"
+18,I,felt,gurney,[],[],[]
+18,I,felt,shoulder,[],[],[]
+18,I,felt,way,[],[],[]
+18,I,felt,doors,[],[],[]
+18,I,felt,I,[],[],[]
+19,glare,surprised,I,[],[],[]
+19,operating,surprised,I,[],[],[]
+19,room,surprised,I,[],[],[]
+20,N/A,did,noise,[],[],[]
+20,chatter,rattle,N/A,[],[],[]
+20,clatter,rattle,N/A,[],[],[]
+21,I,saw,Dr,[],[],"['John', 'Wright']"
+21,I,saw,John,[],[],"['John', 'Wright']"
+21,I,saw,Wright,[],[],"['John', 'Wright']"
+21,I,explained,N/A,[],[],"['John', 'Wright']"
+21,he,was,N/A,[],[],"['John', 'Wright']"
+21,he,cut,hole,[],[],"['John', 'Wright']"
+21,he,cut,skull,[],[],"['John', 'Wright']"
+21,he,cut,it,[],[],"['John', 'Wright']"
+21,he,take,hole,[],[],"['John', 'Wright']"
+21,he,take,skull,[],[],"['John', 'Wright']"
+21,he,take,it,[],[],"['John', 'Wright']"
+21,I,remembered,N/A,[],[],"['John', 'Wright']"
+21,I,looking,pictures,[],[],"['John', 'Wright']"
+21,pictures,suspended,wall,[],[],"['John', 'Wright']"
+22,I,had,them,[],[],[]
+22,I,had,I,[],[],[]
+22,I,had,skull,[],[],[]
+22,I,had,tumor,[],[],[]
+22,tumor,standing,background,[],[],[]
+22,tumor,standing,brain,[],[],[]
+22,tumor,standing,bone,[],[],[]
+23,clock,said,minutes,"['10', 'minutes']",[],[]
+23,wall,said,minutes,"['10', 'minutes']",[],[]

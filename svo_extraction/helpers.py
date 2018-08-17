@@ -25,9 +25,6 @@ import nltk.draw
 from nltk.stem import WordNetLemmatizer
 from stanfordcorenlp import StanfordCoreNLP
 
-import spacy
-from .lib.neuralcoref import neuralcoref as nc
-
 # ========================= Variables and  Models ======================== #
 
 # ========== dir variables ========== #
@@ -51,7 +48,6 @@ OBJECTS = ["dobj", "dative", "attr", "oprd"]
 # ========= set up logger  ========== #
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
-logger.debug('Sth')
 
 
 def my_handler(type, value, tb):
@@ -122,11 +118,8 @@ def exception(_logger):
 
 
 # ========== set up NLP models ======== #
-NER_MODEL = os.path.join(LIB,'./edu/stanford/nlp/models/ner/english.all.3class.distsim.crf.ser.gz')
-NER_JAR = os.path.join(LIB,'./edu/stanford/stanford-ner.jar')
-# ner_tagger = StanfordNERTagger(NER_MODEL,NER_JAR)
 wnl = WordNetLemmatizer()
-nlp = spacy.load(os.path.join(SRC,'lib','models','en_core_web_sm','en_core_web_sm-2.0.0'))
+
 
 # ======== data variables =========== #
 FILE_NAME = None
@@ -443,7 +436,9 @@ def clean_up_file(file_name = None, file_path = None, tmp_out = None):
             line = line.replace(u'â $', '').replace(u'œ', '').replace("''", '').replace("``", '')
             line = line.replace(u"¦", '').replace(u"™", '').strip()
             # print(line)
+            line = line.replace('@','').replace('-','')
             line = ''.join(filter(lambda x: x in string.printable or x == '\'',line))
+
             # print(line)
             if is_sentence(line):
                 out.write(line)
@@ -494,52 +489,37 @@ def is_title(sentence):
 
 
 # =========================Coref Utility Method======================== #
-def neural_coref(corpus):
-    """
-    This method uses the neuralCoref library to perform coreference,
-    generally speaking, this usually gave better result than the CoreNLP approach
-    TODO: Optimize the model loading process, right now it's trivial
-    """
-    logger.info('Neural Coreferencing...')
-    out_path = os.path.join(corpus.tmp_out,corpus.file_name+'-neuralcorefed.txt')
-    sentences = split_into_sentences(open(corpus.cleaned_path,'r',
-                                          encoding='utf-8',errors="ignore").read())
-    nlp = spacy.load('en_coref_md')
-    doc = nlp(''.join(sentences))
-    out = open(out_path,'w')
-    print(doc._.coref_resolved)
-    out.write(doc._.coref_resolved)
-    out.close()
-    cleaned_neural_coref = clean_up_file(file_name = corpus.file_name+'-neuralcorefed',
-                                         file_path = out_path,
-                                         tmp_out = corpus.tmp_out
-                                         )
-    log_var(out_path,cleaned_neural_coref)
-    return cleaned_neural_coref
 
-def coref(corpus, System = 'statistical'):
+def stanford_pipeline(corpus, system = None):
     """
     This method call an external .jar routine to perform CoreNLP coreference
     # TODO: The difference between corefed and origin is not accurate. Please fix it.
     # 		Maybe consider fetch that information from the coref.java routine.
     """
-    logger.info('Coreferencing...')
+    if not system:
+        system = ['deterministic','statistical','neural']
+    logger.info('Feed input file to StanfordPipeline...')
     tmp = os.getcwd()
     os.chdir(LIB)
     logger.warning('Switching to %s folder.', LIB)
+    corefed_files = []
+    conll_file = os.path.join(corpus.tmp_out,corpus.file_name+'conll.txt')
     # subprocess to execute stanford coref routine with 256mb    memory space
-    subprocess.call(['java', '-Xmx1024m','Coref',
-                    '-inputFile', corpus.cleaned_path,
-                    '-outputDir', corpus.tmp_out,
-                    '-system',System])
+    for each in system:
+        print(corpus.cleaned_path)
+        subprocess.call(['java','StanfordPipeline',
+                        '-fileName',corpus.file_name,
+                        '-input', corpus.file_to_use,
+                        '-outputDir', corpus.tmp_out,
+                        '-system',each])
+        out_path = os.path.join(corpus.tmp_out,corpus.file_name+"-"+each+"-corefed.txt")
+        clean_up_file(file_name = corpus.file_name+"-"+each+'-corefed',
+                      file_path = out_path,
+                      tmp_out = corpus.tmp_out)
+        corefed_files.append(out_path)
     os.chdir(tmp)
-    logger.warning('Switching to %s folder.',tmp)
-    out_path = os.path.join(corpus.tmp_out,corpus.file_name+"-"+System+"-out.txt")
-    cleaned_coref = clean_up_file(file_name = corpus.file_name+"-"+System+'corefed',
-                                     file_path = out_path,
-                                     tmp_out = corpus.tmp_out)
-    log_var(out_path,cleaned_coref)
-    return cleaned_coref
+    logger.warning('Switching to %s folder.', tmp)
+    return conll_file,corefed_files
 
 
 def compare_results(origin_text,corefed_text):
@@ -587,7 +567,6 @@ def compare_results(origin_text,corefed_text):
 
     return origin_display, corefed_display
 
-# ===================== Social Actor Utility Method ====================== #
 
 
 def wordnet_social_actor():

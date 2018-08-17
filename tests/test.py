@@ -20,7 +20,7 @@ class BasicTestSuite(unittest.TestCase):
 
     def testCoreNlpPipeline(self):
         nlp = svo_extraction.CoreNlpPipeline(corpus=self.corpus)
-        nlp.setUp()
+        # nlp.setUp()
         nlp.interepret_annotation()
         print(self.corpus.svo_triplets)
 

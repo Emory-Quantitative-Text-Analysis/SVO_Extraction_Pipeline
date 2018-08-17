@@ -1,4 +1,6 @@
 import os
+import csv
+import re
 from . import helpers
 logger = helpers.logger
 
@@ -17,9 +19,10 @@ class Corpus:
         self.tmp_out = None
         self.cleaned_path = None
         self.corefed_path = None
+        self.conll_file = None
         self.file_to_use = file_path
 
-        self.svo_triplets = None
+        self.svo_triplets = []
 
     def set_up(self):
         """
@@ -90,30 +93,22 @@ class Corpus:
         helpers.log_var('CLEANED_PATH')
         logger.debug('Corpus %s cleaned up, file to use now is %s',self.file_name,self.file_to_use)
 
-    def coref(self):
+    def extract_svo(self,sentence):
         """
-        Perform Co-reference and set up file to use.
+        Extract SVO triplets form a Sentence object.
         """
-        coref = Coref(self)
-        for each in coref.coref_methods:
-            coref.display(each)
+        self.svo_triplets.extend(SVO(sentence).extract())
+        with open(os.path.join(self.output_dir,'SVO.csv'),'w',newline='') as result:
+            fieldnames = ['Sentence Index','S','V','O/A','TIME','LOCATION','PERSON']
+            svo_writer = csv.DictWriter(result,fieldnames =  fieldnames)
+            svo_writer.writeheader()
+            for svo in self.svo_triplets:
+                svo_writer.writerow({
+                    'Sentence Index':svo[0],
+                    'S':svo[1], 'V':svo[2], 'O/A':svo[3],
+                    'TIME':svo[4],'LOCATION':svo[5],'PERSON':svo[6],
+                })
 
-        self.file_to_use = coref.choose_coref_method()
-
-    def extract_svo(self):
-        text = open(self.file_to_use).read()
-        result = []
-        for each in helpers.split_into_sentences(text):
-            nlp = CoreNLP(memory='1g')
-            sentence = Sentence(each, nlp=nlp)
-            nlp.exit()
-            svo = SVO(sentence)
-            result.append(svo.extract())
-
-        for each in result:
-            print(each)
-        # TODO: Write result to file.
-        return result
 
     def visualize(self):
         # TODO: Ask which kind of visualization the user want.
@@ -133,18 +128,19 @@ class Coref:
         """
         self.corpus = corpus
         if coref_methods is None:
-            coref_methods = [helpers.neural_coref.__name__]
+            coref_methods = ['statistical','deterministic','neural']
         self.coref_methods = [x for x in coref_methods]
         self.coref_files = {}
 
         for each in coref_methods:
-            coref_file = getattr(helpers,each)(self.corpus)
+            coref_file = helpers.stanford_pipeline(self.corpus)
             self.coref_files[each] = coref_file
 
         for k,v in self.coref_files.items():
             logger.info('Coref method: %s, corefed file: %s',k,v)
 
-    def compare(self, coref_method, comparison_method=None):
+    @classmethod
+    def compare(cls, origin_text, corefed_text, coref_method, comparison_method=None):
         """
         Compare original file with corefed file.
         :param coref_method: String the name of the coref method
@@ -153,8 +149,6 @@ class Coref:
                to display the highlighting difference, the default method was implemented with difflib
         :return: tuples with highlight info
         """
-        origin_text = open(self.corpus.cleaned_path).read()
-        corefed_text = open(self.coref_files[coref_method]).read()
         logger.info('Comparing result from %s co-reference method',coref_method)
         if comparison_method is not None:
             logger.info('Use self-defined comparison method %s',comparison_method)
@@ -162,15 +156,17 @@ class Coref:
 
         return helpers.compare_results(origin_text,corefed_text)
 
-    def display(self,coref_method):
+    @classmethod
+    def display(cls,origin_display, coref_display, coref_method):
         """
         Display with GUI of the difference, editing enabled
+        :param origin_display: a tuple with difference and highlight.
+        :param coref_display: a tuple with difference and highlight info
         :param coref_method: String the name of the co-reference method
         :return: the edited result
         """
         gui = helpers.GUI(title=("Comparing result from {0}".format(coref_method)))
         logger.info("Displaying result from {0}, editing enabled".format(coref_method))
-        origin_display,coref_display = self.compare(coref_method)
         result = []
 
         # GUI to edit the corefed text
@@ -180,16 +176,10 @@ class Coref:
         gui.run()
 
         # write result to file
-        f = open(self.coref_files[coref_method],'w')
-        print('result is ', result[0])
-        f.write(result[0])
-        f.close()
-        self.corpus.file_to_use = self.coref_files[coref_method]
-        logger.debug('Corpus %s co-referenced, file to use now is %s',
-                     self.corpus.file_name, self.corpus.file_to_use)
-        return self.coref_files[coref_method]
+        return result[0]
 
-    def choose_coref_method(self):
+    @classmethod
+    def choose_coref_method(cls,coref_methods):
         """
         Choose which coref method to use
         :return: corefed file path
@@ -198,12 +188,10 @@ class Coref:
         helpers.show_message(msg="Please choose a coref method you wish to use.")
         logger.info("Choosing coref method")
         method = None
-        gui.create_options(options = self.coref_methods)
+        gui.create_options(options = coref_methods)
         gui.create_button(text='Choose',callback=helpers.finish_options,
                           finish_options = (gui,method))
-        file_to_use = self.coref_files[method]
-
-        return file_to_use
+        return method
 
     def __str__(self):
         return '/n'.join([str(x) for x in self.coref_files])
@@ -242,67 +230,47 @@ class Actor:
         return
 
 
-class CoreNLP:
+class CoreNlpPipeline:
     """
     Use stanford corenlp to handle NER, co-reference and parser tree.
     """
 
-    def __init__(self, port=None, path=None, memory=None, corpus=None):
-        self.path = path if path is not None else helpers.NLP
-        self.port = port if port is not None else helpers.get_open_port()
-        self.memory = memory if memory is not None else '1g'
+    def __init__(self, corpus=None):
+
         self.corpus = corpus
-        self.nlp = helpers.StanfordCoreNLP(self.path,memory=self.memory, port=self.port)
 
-    def set_corpus(self, corpus=None):
-        """
-        Corpus setter wtihout reinitialize the whole nlp server
-        """
-        try:
-            assert isinstance(Corpus,corpus)
-            self.corpus = corpus
-        except AssertionError:
-            exit(1)
+    def setUp(self):
 
-    def exec(self,method = 'word_tokenize',sentence = ''):
-        """
-        Exec stanfordcorenlp method name.
-        :param method: choice from
-                        'word_tokenize', 'pos_tag', 'ner', 'parse', 'dependency_parse', 'coref'
-        :param sentence: optional kwarg to process only one sentence instead of the whole corpus
-        :return: path to file holding the result
-        """
-        _available_method = ['word_tokenize','ner','pos_tag','parse','dependency_parse','coref']
+        conll_file, self.corefed_files = helpers.stanford_pipeline(self.corpus)
+        self.corpus.conll_file = conll_file
 
-        if method not in _available_method:
-            logger.warning('This method is not available for stanfordcorenlp, available options are:{0}'.
-                           format('\n'.join(_available_method)))
+    def setup_coref(self):
+        origin_text = open(self.corpus.file_to_use).read()
+        coref_methods = []
+        for each in self.corefed_files:
+            corefed_text = open(each).read()
+            coref_method = os.path.basename(each).split('-')[-2]
+            coref_methods.append(coref_method)
+            origin_dispaly, coref_display = \
+                Coref.compare(origin_text,corefed_text,coref_method)
+            edited_coref = \
+                Coref.display(origin_dispaly,coref_display,coref_method)
+            open(each,'w').write(edited_coref)
 
-        if sentence == '': # process all sentences in the corpus
-            logger.info('Performing {0} for {1}.'
-                        .format(method,self.corpus.file_name))
+        method_chosen = Coref.choose_coref_method(coref_methods)
 
-            f = open(self.corpus.file_to_use, 'r')
-            out_path = os.path.join(self.corpus.tmp_out,
-                                    '{0}-{1}.txt'.format(self.corpus.file_name,method))
-            out = open(out_path,'w')
+        self.corpus.file_to_use = os.path.join(self.corpus.tmp_out,
+                                               '-'+method_chosen+'corefed-cleanup.txt')
 
-            for line in f.readlines():
-                # put delimiter into the file to separate sentences.
-                print(self.nlp.__getattribute__(method)(line),'@',file=out)
+    def interepret_annotation(self):
+        conll = open(os.path.join(self.corpus.tmp_out,self.corpus.file_name+'-conll.txt')).read()
+        d = "@@@Sentence"
+        # print(conll,conll.split("@@@Sentence")[1::])
+        for block in [d+e for e in conll.split("@@@Sentence")[1::]]:
+            print(block.split("@@@"))
+            sentence = Sentence(block.split("@@@"))
+            self.corpus.extract_svo(sentence)
 
-            f.close()
-            out.close()
-
-            return out_path
-        else:
-            result = self.nlp.__getattribute__(method)(sentence)
-
-            return result
-
-    def exit(self):
-
-        self.nlp.close()
 
 
 class Word:
@@ -322,66 +290,88 @@ class Sentence:
     Sentence object with semantic information tagged.
     """
 
-    def __init__(self,text,
-                 nlp=None,):
+    def __init__(self,conll_block):
         """
-        Take the string as input and initialize the sentence object
+        Take the annotation as input and initialize the sentence object
         :param text: str, sentence to be processed.
         """
-        self.text = text
+        self.conll_block = conll_block
+        self.index = self.get_index()
+        self.text = self.get_text()
+        self.token_list,self.time_list, self.location_list, self.person_list\
+            = self.tokenize()
+        self.parse_tree = self.get_parser()
+        self.dependency = self.set_dependency_label()
 
-        self.nlp = nlp if nlp is not None else CoreNLP()
-        self.dependency_tree = self.parse_dependency()
-        self.pos_tags = self.pos_tag()
-        self.tokens = self.tokenize()
-        self.parse_tree = self.parse()
-        self.deprel = self.set_dependency_label()
-
-    def parse_dependency(self):
+    def get_index(self):
         """
-        Do dependency parse of the sentence.
-        :param nlp: a CoreNLP object
-        :return: str representation of the dependency parse tree
+        Find the index of this sentence in the corpus.
         """
+        assert self.conll_block[1].split("\n")[0].startswith("Sentence")
+        index = re.findall(r'\d+',self.conll_block[1].split("\n")[0])[0]
+        return index
 
-        logger.info("Dependency parsing \'{0}\'.".format(self.text))
+    def get_text(self):
+        """
+        Restore the original sentence.
+        """
+        assert self.conll_block[1].split("\n")[0].startswith("Sentence")
+        sentence = self.conll_block[1].split("\n")[1]
+        return sentence
 
-        deprel =  self.nlp.exec(method='dependency_parse',sentence=self.text)
-
-        return deprel
 
     def tokenize(self):
-        tags = self.nlp.exec(method='pos_tag', sentence=self.text)
-        # ners = self.nlp.exec(method='ner_tag',sentence=self.text)
-        word_list = []
-        for i in range(len(tags)):
-            word = Word(tags[i][0],pos=self.pos_tags[i][1])
-            lemma = helpers.lemmatize(word.text,'v' if word.pos in helpers.VERB else 'n')
-            word.lemma = lemma
-            word_list.append(word)
-        # print(word_dic)
-        return word_list
+        """
+        Generate Word object with semantic info tagged.
+        """
+        token_list = []
+        time_list = []
+        location_list = []
+        person_list =  []
+        assert self.conll_block[2].split("\n")[0] == "token"
+        tokens = self.conll_block[2].split("\n")[1:-1]
+        for each in tokens:
+            tag_list = each.split("\t")
+            word = Word(tag_list[0],
+                        pos = tag_list[1],
+                        ner = tag_list[2])
+            token_list.append(word)
+            if tag_list[2] in ['DURATION','DATE','TIME']:
+                time_list.append(tag_list[0])
+            elif tag_list[2] == 'LOCATION':
+                location_list.append(tag_list[0])
+            elif tag_list[2] == 'PERSON':
+                person_list.append(tag_list[0])
 
-    def pos_tag(self):
-        tags = self.nlp.exec(method='pos_tag',sentence=self.text)
-        return tags
+        return token_list, time_list, location_list, person_list
 
-    def parse(self):
-        tree_representation = self.nlp.exec(method='parse',sentence=self.text)
+    def get_parser(self):
+        """
+        Restore parser tree.
+        """
+        assert self.conll_block[3].split("\n")[0] == "parse"
+        tree_representation = self.conll_block[3].split("\n")[1]
         tree = helpers.read_tree(tree_representation)
         return tree
 
     def set_dependency_label(self):
         """
-        Set up the dependency relationship as a 2D array
+        Set up the dependency relationship for subtrees in parser_tree.
         """
-        matrix = [[None]*len(self.tokens) for _ in range(len(self.tokens))]
+        assert self.conll_block[4].split("\n")[0] == "dependency"
+        matrix = [[None]*len(self.token_list) for _ in range(len(self.token_list))]
         for i in range(len(matrix)):
             matrix[i][i] = 'self'
+        for each in self.conll_block[4].split("\n")[1:-1]:
+            deprel = each[:each.find('(')]
+            print(each[each.find('-')+1:each.find(',')],
+                  each[each.rfind('-')+1:each.find('_')]
+                  )
+            i = int(each[each.find('-')+1:each.find(',')])
+            j = int(each[each.rfind('-')+1:each.find('_')])
+            if i-1 in range(0,len(self.token_list)) and j-1 in range(0,len(self.token_list)):
+                matrix[i-1][j-1] = deprel
 
-        for label in self.dependency_tree[1:]:
-            deprel = label[0]
-            matrix[label[2] - 1][label[1] - 1] = deprel
         index = 0
         for t in self.parse_tree.subtrees(lambda e : e.height() == 2):
             t.set_deprel(matrix[index])
@@ -400,7 +390,6 @@ class SVO:
         """
 
         self.sentence = sentence
-
         self.visited = []
         # Decrypted attributes
         # self.tree_representation = tree_representation
@@ -414,6 +403,8 @@ class SVO:
         :return:
         """
         verb, subj,tmp_subj, obj, adj = [], [], [], [],[]
+        sentence_index, time,location, persons = \
+            self.sentence.index, self.sentence.time_list, self.sentence.location_list, self.sentence.person_list
         svo = []
         for each in self.sentence.parse_tree.subtrees(lambda t : t.label() == 'VP'):
 
@@ -429,16 +420,28 @@ class SVO:
                     subj = tmp_subj
 
                 verb = self._find_verbs(each,obj,adj)
-                v_i = 0 # verb index to mute
+
+                tmp_subj = subj
+                for s in subj:
+                    for v in verb:
+                        if s and v and s.get_deprel(v) == 'nsubjpass':
+                            _tmp = subj[::]
+                            subj = obj[::]
+                            obj = _tmp[::]
+                            break
+                    else:
+                        continue
+                    break
+
+                v_i = 0  # verb index to mute
                 for v_1 in verb:
                     for v_2 in verb:
                         if v_2:
                             print(v_1.get_str(), v_2.get_str(), v_1.get_deprel(v_2))
-                            if v_1.get_deprel(v_2) == 'aux':
+                            if v_1.get_deprel(v_2) in ['aux', 'auxpass']:
                                 verb[v_i] = None
                     v_i += 1
-                print(subj,flush=True)
-                tmp_subj = subj
+
                 subj = [e.get_str() for e in subj] if len(subj) != 0 else ['N/A']
                 obj = [e.get_str() for e in obj+adj] if (len(obj)!= 0 or len(adj)!=0) else ['N/A']
                 verb = [e.get_str() for e in verb if e] if len(verb) != 0 else ['N/A']
@@ -446,7 +449,9 @@ class SVO:
                 for s in subj:
                     for v in verb:
                         for o in obj:
-                            svo.append((s,v,o))
+                            svo.append((sentence_index,
+                                        s,v,o,
+                                        time,location,persons))
 
                 if len(verb) != 0:
                     print(subj,verb,obj,adj,flush=True)

@@ -104,4 +104,4 @@ ENV/
 *.DS_Store
 
 # lib file
-svo_extraction/lib
+# svo_extraction/lib

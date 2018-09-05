@@ -1,0 +1,1375 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.gephi.org/gexf/1.2draft" xmlns:ns0="xsi" version="1.2" ns0:schemaLocation="http://www.gephi.org/gexf/1.1draft http://gephi.org/gexf/1.2draft.xsd">
+  <meta lastmodified="2018-09-04">
+    <creator>Murphy</creator>
+    <description>Author</description>
+  </meta>
+  <graph defaultedgetype="directed" label="SVO graph" mode="dynamic" timeformat="date">
+    <nodes>
+      <node id="Christmas" label="Christmas">
+        <spells>
+          <spell start="2018-09-05" end="2018-09-06"/>
+          <spell start="2018-09-07" end="2018-09-08"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="153" g="53" b="95"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="300"/>
+      </node>
+      <node id="Day" label="Day">
+        <spells>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="121" g="99" b="36"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="150"/>
+      </node>
+      <node id="Debbie" label="Debbie">
+        <spells>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="103" g="83" b="214"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="150"/>
+      </node>
+      <node id="Dr" label="Dr">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="158" g="221" b="194"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="150"/>
+      </node>
+      <node id="Everything" label="Everything">
+        <spells>
+          <spell start="2018-09-12" end="2018-09-13"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="40" g="229" b="10"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="I" label="I">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-08" end="2018-09-09"/>
+          <spell start="2018-09-09" end="2018-09-10"/>
+          <spell start="2018-09-09" end="2018-09-10"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-11" end="2018-09-12"/>
+          <spell start="2018-09-14" end="2018-09-15"/>
+          <spell start="2018-09-14" end="2018-09-15"/>
+          <spell start="2018-09-14" end="2018-09-15"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-16" end="2018-09-17"/>
+          <spell start="2018-09-16" end="2018-09-17"/>
+          <spell start="2018-09-16" end="2018-09-17"/>
+          <spell start="2018-09-16" end="2018-09-17"/>
+          <spell start="2018-09-16" end="2018-09-17"/>
+          <spell start="2018-09-16" end="2018-09-17"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-19" end="2018-09-20"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-22" end="2018-09-23"/>
+          <spell start="2018-09-22" end="2018-09-23"/>
+          <spell start="2018-09-22" end="2018-09-23"/>
+          <spell start="2018-09-22" end="2018-09-23"/>
+          <spell start="2018-09-22" end="2018-09-23"/>
+          <spell start="2018-09-22" end="2018-09-23"/>
+          <spell start="2018-09-23" end="2018-09-24"/>
+          <spell start="2018-09-23" end="2018-09-24"/>
+          <spell start="2018-09-23" end="2018-09-24"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-26" end="2018-09-27"/>
+          <spell start="2018-09-26" end="2018-09-27"/>
+          <spell start="2018-09-26" end="2018-09-27"/>
+          <spell start="2018-09-26" end="2018-09-27"/>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="101" g="126" b="155"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="4900"/>
+      </node>
+      <node id="It" label="It">
+        <spells>
+          <spell start="2018-09-05" end="2018-09-06"/>
+          <spell start="2018-09-05" end="2018-09-06"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="139" g="12" b="122"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="100"/>
+      </node>
+      <node id="John" label="John">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="203" g="74" b="151"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="150"/>
+      </node>
+      <node id="Kathleen" label="Kathleen">
+        <spells>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-19" end="2018-09-20"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="150" g="139" b="32"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="700"/>
+      </node>
+      <node id="N/A" label="N/A">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-07" end="2018-09-08"/>
+          <spell start="2018-09-09" end="2018-09-10"/>
+          <spell start="2018-09-13" end="2018-09-14"/>
+          <spell start="2018-09-14" end="2018-09-15"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-19" end="2018-09-20"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-24" end="2018-09-25"/>
+          <spell start="2018-09-24" end="2018-09-25"/>
+          <spell start="2018-09-24" end="2018-09-25"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="18" g="176" b="140"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="1550"/>
+      </node>
+      <node id="Wright" label="Wright">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="29" g="242" b="243"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="150"/>
+      </node>
+      <node id="account" label="account">
+        <spells>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="126" g="247" b="40"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="aftereffects" label="aftereffects">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="241" g="5" b="172"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="anesthetist" label="anesthetist">
+        <spells>
+          <spell start="2018-09-08" end="2018-09-09"/>
+          <spell start="2018-09-09" end="2018-09-10"/>
+          <spell start="2018-09-09" end="2018-09-10"/>
+          <spell start="2018-09-09" end="2018-09-10"/>
+          <spell start="2018-09-09" end="2018-09-10"/>
+          <spell start="2018-09-09" end="2018-09-10"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="149" g="159" b="54"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="300"/>
+      </node>
+      <node id="background" label="background">
+        <spells>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="119" g="17" b="28"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="blindness" label="blindness">
+        <spells>
+          <spell start="2018-09-16" end="2018-09-17"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="46" g="159" b="185"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="bone" label="bone">
+        <spells>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="158" g="53" b="218"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="book" label="book">
+        <spells>
+          <spell start="2018-09-16" end="2018-09-17"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="71" g="214" b="162"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="brain" label="brain">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="113" g="66" b="223"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="100"/>
+      </node>
+      <node id="business" label="business">
+        <spells>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="41" g="26" b="81"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="calm" label="calm">
+        <spells>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="164" g="13" b="16"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="250"/>
+      </node>
+      <node id="cause" label="cause">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="231" g="189" b="217"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="chatter" label="chatter">
+        <spells>
+          <spell start="2018-09-24" end="2018-09-25"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="213" g="203" b="88"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="checking" label="checking">
+        <spells>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="204" g="224" b="218"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="clatter" label="clatter">
+        <spells>
+          <spell start="2018-09-24" end="2018-09-25"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="222" g="209" b="190"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="clock" label="clock">
+        <spells>
+          <spell start="2018-09-27" end="2018-09-28"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="209" g="133" b="89"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="cold" label="cold">
+        <spells>
+          <spell start="2018-09-08" end="2018-09-09"/>
+          <spell start="2018-09-08" end="2018-09-09"/>
+          <spell start="2018-09-11" end="2018-09-12"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="134" g="55" b="235"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="150"/>
+      </node>
+      <node id="corridor" label="corridor">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-11" end="2018-09-12"/>
+          <spell start="2018-09-11" end="2018-09-12"/>
+          <spell start="2018-09-11" end="2018-09-12"/>
+          <spell start="2018-09-11" end="2018-09-12"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="59" g="38" b="2"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="250"/>
+      </node>
+      <node id="cubicle" label="cubicle">
+        <spells>
+          <spell start="2018-09-09" end="2018-09-10"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="173" g="31" b="58"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="day" label="day">
+        <spells>
+          <spell start="2018-09-05" end="2018-09-06"/>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="92" g="148" b="90"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="300"/>
+      </node>
+      <node id="distance" label="distance">
+        <spells>
+          <spell start="2018-09-13" end="2018-09-14"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="43" g="125" b="126"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="doors" label="doors">
+        <spells>
+          <spell start="2018-09-22" end="2018-09-23"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="73" g="187" b="217"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="ear" label="ear">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="105" g="98" b="98"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="everything" label="everything">
+        <spells>
+          <spell start="2018-09-18" end="2018-09-19"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="143" g="26" b="128"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="family" label="family">
+        <spells>
+          <spell start="2018-09-16" end="2018-09-17"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="20" g="120" b="252"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="feet" label="feet">
+        <spells>
+          <spell start="2018-09-13" end="2018-09-14"/>
+          <spell start="2018-09-13" end="2018-09-14"/>
+          <spell start="2018-09-13" end="2018-09-14"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="215" g="116" b="61"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="150"/>
+      </node>
+      <node id="glare" label="glare">
+        <spells>
+          <spell start="2018-09-23" end="2018-09-24"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="91" g="216" b="188"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="gown" label="gown">
+        <spells>
+          <spell start="2018-09-11" end="2018-09-12"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="180" g="146" b="228"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="gurney" label="gurney">
+        <spells>
+          <spell start="2018-09-09" end="2018-09-10"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-22" end="2018-09-23"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="234" g="195" b="157"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="150"/>
+      </node>
+      <node id="hand" label="hand">
+        <spells>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="156" g="107" b="189"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="300"/>
+      </node>
+      <node id="he" label="he">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="135" g="133" b="57"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="1200"/>
+      </node>
+      <node id="hearing" label="hearing">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="160" g="97" b="0"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="hole" label="hole">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="66" g="68" b="101"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="300"/>
+      </node>
+      <node id="hospital" label="hospital">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-11" end="2018-09-12"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="226" g="137" b="69"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="100"/>
+      </node>
+      <node id="hour" label="hour">
+        <spells>
+          <spell start="2018-09-13" end="2018-09-14"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="160" g="187" b="79"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="it" label="it">
+        <spells>
+          <spell start="2018-09-16" end="2018-09-17"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="79" g="102" b="142"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="400"/>
+      </node>
+      <node id="lights" label="lights">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-06" end="2018-09-07"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="78" g="39" b="183"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="100"/>
+      </node>
+      <node id="loss" label="loss">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="209" g="236" b="161"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="minutes" label="minutes">
+        <spells>
+          <spell start="2018-09-27" end="2018-09-28"/>
+          <spell start="2018-09-27" end="2018-09-28"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="214" g="229" b="208"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="100"/>
+      </node>
+      <node id="miracles" label="miracles">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="170" g="165" b="116"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="motion" label="motion">
+        <spells>
+          <spell start="2018-09-12" end="2018-09-13"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="217" g="251" b="1"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="noise" label="noise">
+        <spells>
+          <spell start="2018-09-24" end="2018-09-25"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="76" g="8" b="36"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="operating" label="operating">
+        <spells>
+          <spell start="2018-09-08" end="2018-09-09"/>
+          <spell start="2018-09-13" end="2018-09-14"/>
+          <spell start="2018-09-23" end="2018-09-24"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="211" g="54" b="203"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="150"/>
+      </node>
+      <node id="operation" label="operation">
+        <spells>
+          <spell start="2018-09-18" end="2018-09-19"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="125" g="39" b="34"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="papers" label="papers">
+        <spells>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="18" g="190" b="120"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="100"/>
+      </node>
+      <node id="paralysis" label="paralysis">
+        <spells>
+          <spell start="2018-09-16" end="2018-09-17"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="180" g="91" b="4"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="pictures" label="pictures">
+        <spells>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="238" g="34" b="199"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="100"/>
+      </node>
+      <node id="plenty" label="plenty">
+        <spells>
+          <spell start="2018-09-14" end="2018-09-15"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="105" g="6" b="111"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="publishing" label="publishing">
+        <spells>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="71" g="192" b="152"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="recital" label="recital">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="255" g="202" b="207"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="room" label="room">
+        <spells>
+          <spell start="2018-09-08" end="2018-09-09"/>
+          <spell start="2018-09-13" end="2018-09-14"/>
+          <spell start="2018-09-23" end="2018-09-24"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="130" g="136" b="71"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="150"/>
+      </node>
+      <node id="rows" label="rows">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="93" g="228" b="85"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="seizures" label="seizures">
+        <spells>
+          <spell start="2018-09-16" end="2018-09-17"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="210" g="90" b="112"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="shoulder" label="shoulder">
+        <spells>
+          <spell start="2018-09-22" end="2018-09-23"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="180" g="124" b="110"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="side" label="side">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="124" g="234" b="24"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="signature" label="signature">
+        <spells>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="64" g="173" b="254"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="skull" label="skull">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="39" g="194" b="186"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="350"/>
+      </node>
+      <node id="students" label="students">
+        <spells>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="88" g="161" b="228"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="100"/>
+      </node>
+      <node id="suns" label="suns">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-06" end="2018-09-07"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="171" g="156" b="143"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="100"/>
+      </node>
+      <node id="them" label="them">
+        <spells>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="58" g="168" b="119"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="time" label="time">
+        <spells>
+          <spell start="2018-09-14" end="2018-09-15"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="16" g="133" b="170"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="100"/>
+      </node>
+      <node id="trip" label="trip">
+        <spells>
+          <spell start="2018-09-13" end="2018-09-14"/>
+          <spell start="2018-09-13" end="2018-09-14"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="43" g="197" b="56"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="100"/>
+      </node>
+      <node id="tumor" label="tumor">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-26" end="2018-09-27"/>
+          <spell start="2018-09-26" end="2018-09-27"/>
+          <spell start="2018-09-26" end="2018-09-27"/>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="153" g="35" b="241"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="350"/>
+      </node>
+      <node id="university" label="university">
+        <spells>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="203" g="217" b="190"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="150"/>
+      </node>
+      <node id="voice" label="voice">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="105" g="198" b="32"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="wall" label="wall">
+        <spells>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-27" end="2018-09-28"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="108" g="7" b="76"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="100"/>
+      </node>
+      <node id="way" label="way">
+        <spells>
+          <spell start="2018-09-22" end="2018-09-23"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="136" g="92" b="77"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="worry" label="worry">
+        <spells>
+          <spell start="2018-09-19" end="2018-09-20"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="185" g="140" b="138"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+      <node id="years" label="years">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+        </spells>
+        <ns0:color xmlns:ns0="http://www.gexf.net/1.1draft/viz" r="250" g="162" b="239"/>
+        <ns1:size xmlns:ns1="http://www.gexf.net/1.1draft/viz" value="50"/>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="Christmas N/A" source="Christmas" target="N/A">
+        <spells>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+        </spells>
+      </edge>
+      <edge id="Day N/A" source="Day" target="N/A">
+        <spells>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+        </spells>
+      </edge>
+      <edge id="Debbie N/A" source="Debbie" target="N/A">
+        <spells>
+          <spell start="2018-09-21" end="2018-09-22"/>
+          <spell start="2018-09-21" end="2018-09-22"/>
+        </spells>
+      </edge>
+      <edge id="Everything motion" source="Everything" target="motion">
+        <spells>
+          <spell start="2018-09-12" end="2018-09-13"/>
+        </spells>
+      </edge>
+      <edge id="I Christmas" source="I" target="Christmas">
+        <spells>
+          <spell start="2018-09-21" end="2018-09-22"/>
+        </spells>
+      </edge>
+      <edge id="I Day" source="I" target="Day">
+        <spells>
+          <spell start="2018-09-21" end="2018-09-22"/>
+        </spells>
+      </edge>
+      <edge id="I Debbie" source="I" target="Debbie">
+        <spells>
+          <spell start="2018-09-21" end="2018-09-22"/>
+        </spells>
+      </edge>
+      <edge id="I Dr" source="I" target="Dr">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+      </edge>
+      <edge id="I I" source="I" target="I">
+        <spells>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-22" end="2018-09-23"/>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+      </edge>
+      <edge id="I John" source="I" target="John">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+      </edge>
+      <edge id="I Kathleen" source="I" target="Kathleen">
+        <spells>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+      </edge>
+      <edge id="I N/A" source="I" target="N/A">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-06" end="2018-09-07"/>
+          <spell start="2018-09-14" end="2018-09-15"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-19" end="2018-09-20"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+      </edge>
+      <edge id="I Wright" source="I" target="Wright">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+      </edge>
+      <edge id="I account" source="I" target="account">
+        <spells>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+      </edge>
+      <edge id="I aftereffects" source="I" target="aftereffects">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+        </spells>
+      </edge>
+      <edge id="I blindness" source="I" target="blindness">
+        <spells>
+          <spell start="2018-09-16" end="2018-09-17"/>
+        </spells>
+      </edge>
+      <edge id="I book" source="I" target="book">
+        <spells>
+          <spell start="2018-09-16" end="2018-09-17"/>
+        </spells>
+      </edge>
+      <edge id="I business" source="I" target="business">
+        <spells>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+      </edge>
+      <edge id="I calm" source="I" target="calm">
+        <spells>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+        </spells>
+      </edge>
+      <edge id="I cause" source="I" target="cause">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+        </spells>
+      </edge>
+      <edge id="I checking" source="I" target="checking">
+        <spells>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+      </edge>
+      <edge id="I corridor" source="I" target="corridor">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+        </spells>
+      </edge>
+      <edge id="I doors" source="I" target="doors">
+        <spells>
+          <spell start="2018-09-22" end="2018-09-23"/>
+        </spells>
+      </edge>
+      <edge id="I ear" source="I" target="ear">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+        </spells>
+      </edge>
+      <edge id="I everything" source="I" target="everything">
+        <spells>
+          <spell start="2018-09-18" end="2018-09-19"/>
+        </spells>
+      </edge>
+      <edge id="I family" source="I" target="family">
+        <spells>
+          <spell start="2018-09-16" end="2018-09-17"/>
+        </spells>
+      </edge>
+      <edge id="I gurney" source="I" target="gurney">
+        <spells>
+          <spell start="2018-09-09" end="2018-09-10"/>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-22" end="2018-09-23"/>
+        </spells>
+      </edge>
+      <edge id="I hand" source="I" target="hand">
+        <spells>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+        </spells>
+      </edge>
+      <edge id="I hearing" source="I" target="hearing">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+        </spells>
+      </edge>
+      <edge id="I hospital" source="I" target="hospital">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+        </spells>
+      </edge>
+      <edge id="I it" source="I" target="it">
+        <spells>
+          <spell start="2018-09-16" end="2018-09-17"/>
+        </spells>
+      </edge>
+      <edge id="I loss" source="I" target="loss">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+        </spells>
+      </edge>
+      <edge id="I operation" source="I" target="operation">
+        <spells>
+          <spell start="2018-09-18" end="2018-09-19"/>
+        </spells>
+      </edge>
+      <edge id="I papers" source="I" target="papers">
+        <spells>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+        </spells>
+      </edge>
+      <edge id="I paralysis" source="I" target="paralysis">
+        <spells>
+          <spell start="2018-09-16" end="2018-09-17"/>
+        </spells>
+      </edge>
+      <edge id="I pictures" source="I" target="pictures">
+        <spells>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+      </edge>
+      <edge id="I plenty" source="I" target="plenty">
+        <spells>
+          <spell start="2018-09-14" end="2018-09-15"/>
+        </spells>
+      </edge>
+      <edge id="I publishing" source="I" target="publishing">
+        <spells>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+      </edge>
+      <edge id="I recital" source="I" target="recital">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+        </spells>
+      </edge>
+      <edge id="I seizures" source="I" target="seizures">
+        <spells>
+          <spell start="2018-09-16" end="2018-09-17"/>
+        </spells>
+      </edge>
+      <edge id="I shoulder" source="I" target="shoulder">
+        <spells>
+          <spell start="2018-09-22" end="2018-09-23"/>
+        </spells>
+      </edge>
+      <edge id="I signature" source="I" target="signature">
+        <spells>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+      </edge>
+      <edge id="I skull" source="I" target="skull">
+        <spells>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+      </edge>
+      <edge id="I students" source="I" target="students">
+        <spells>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+        </spells>
+      </edge>
+      <edge id="I them" source="I" target="them">
+        <spells>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+      </edge>
+      <edge id="I time" source="I" target="time">
+        <spells>
+          <spell start="2018-09-14" end="2018-09-15"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+      </edge>
+      <edge id="I tumor" source="I" target="tumor">
+        <spells>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+      </edge>
+      <edge id="I university" source="I" target="university">
+        <spells>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-18" end="2018-09-19"/>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+      </edge>
+      <edge id="I voice" source="I" target="voice">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+        </spells>
+      </edge>
+      <edge id="I way" source="I" target="way">
+        <spells>
+          <spell start="2018-09-22" end="2018-09-23"/>
+        </spells>
+      </edge>
+      <edge id="It Christmas" source="It" target="Christmas">
+        <spells>
+          <spell start="2018-09-05" end="2018-09-06"/>
+        </spells>
+      </edge>
+      <edge id="It day" source="It" target="day">
+        <spells>
+          <spell start="2018-09-05" end="2018-09-06"/>
+        </spells>
+      </edge>
+      <edge id="Kathleen I" source="Kathleen" target="I">
+        <spells>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+        </spells>
+      </edge>
+      <edge id="Kathleen N/A" source="Kathleen" target="N/A">
+        <spells>
+          <spell start="2018-09-20" end="2018-09-21"/>
+        </spells>
+      </edge>
+      <edge id="Kathleen calm" source="Kathleen" target="calm">
+        <spells>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+        </spells>
+      </edge>
+      <edge id="Kathleen hand" source="Kathleen" target="hand">
+        <spells>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+          <spell start="2018-09-10" end="2018-09-11"/>
+        </spells>
+      </edge>
+      <edge id="Kathleen worry" source="Kathleen" target="worry">
+        <spells>
+          <spell start="2018-09-19" end="2018-09-20"/>
+        </spells>
+      </edge>
+      <edge id="N/A Christmas" source="N/A" target="Christmas">
+        <spells>
+          <spell start="2018-09-07" end="2018-09-08"/>
+        </spells>
+      </edge>
+      <edge id="N/A noise" source="N/A" target="noise">
+        <spells>
+          <spell start="2018-09-24" end="2018-09-25"/>
+        </spells>
+      </edge>
+      <edge id="anesthetist I" source="anesthetist" target="I">
+        <spells>
+          <spell start="2018-09-08" end="2018-09-09"/>
+          <spell start="2018-09-09" end="2018-09-10"/>
+        </spells>
+      </edge>
+      <edge id="anesthetist N/A" source="anesthetist" target="N/A">
+        <spells>
+          <spell start="2018-09-09" end="2018-09-10"/>
+        </spells>
+      </edge>
+      <edge id="anesthetist anesthetist" source="anesthetist" target="anesthetist">
+        <spells>
+          <spell start="2018-09-09" end="2018-09-10"/>
+        </spells>
+      </edge>
+      <edge id="anesthetist cubicle" source="anesthetist" target="cubicle">
+        <spells>
+          <spell start="2018-09-09" end="2018-09-10"/>
+        </spells>
+      </edge>
+      <edge id="chatter N/A" source="chatter" target="N/A">
+        <spells>
+          <spell start="2018-09-24" end="2018-09-25"/>
+        </spells>
+      </edge>
+      <edge id="clatter N/A" source="clatter" target="N/A">
+        <spells>
+          <spell start="2018-09-24" end="2018-09-25"/>
+        </spells>
+      </edge>
+      <edge id="clock minutes" source="clock" target="minutes">
+        <spells>
+          <spell start="2018-09-27" end="2018-09-28"/>
+        </spells>
+      </edge>
+      <edge id="corridor I" source="corridor" target="I">
+        <spells>
+          <spell start="2018-09-11" end="2018-09-12"/>
+        </spells>
+      </edge>
+      <edge id="corridor cold" source="corridor" target="cold">
+        <spells>
+          <spell start="2018-09-11" end="2018-09-12"/>
+        </spells>
+      </edge>
+      <edge id="corridor gown" source="corridor" target="gown">
+        <spells>
+          <spell start="2018-09-11" end="2018-09-12"/>
+        </spells>
+      </edge>
+      <edge id="corridor hospital" source="corridor" target="hospital">
+        <spells>
+          <spell start="2018-09-11" end="2018-09-12"/>
+        </spells>
+      </edge>
+      <edge id="day day" source="day" target="day">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+        </spells>
+      </edge>
+      <edge id="day miracles" source="day" target="miracles">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+        </spells>
+      </edge>
+      <edge id="day years" source="day" target="years">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+        </spells>
+      </edge>
+      <edge id="distance feet" source="distance" target="feet">
+        <spells>
+          <spell start="2018-09-13" end="2018-09-14"/>
+        </spells>
+      </edge>
+      <edge id="glare I" source="glare" target="I">
+        <spells>
+          <spell start="2018-09-23" end="2018-09-24"/>
+        </spells>
+      </edge>
+      <edge id="he I" source="he" target="I">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+        </spells>
+      </edge>
+      <edge id="he N/A" source="he" target="N/A">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+      </edge>
+      <edge id="he hole" source="he" target="hole">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+      </edge>
+      <edge id="he it" source="he" target="it">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+      </edge>
+      <edge id="he skull" source="he" target="skull">
+        <spells>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-17" end="2018-09-18"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+      </edge>
+      <edge id="it day" source="it" target="day">
+        <spells>
+          <spell start="2018-09-21" end="2018-09-22"/>
+        </spells>
+      </edge>
+      <edge id="lights I" source="lights" target="I">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+        </spells>
+      </edge>
+      <edge id="lights suns" source="lights" target="suns">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+        </spells>
+      </edge>
+      <edge id="operating I" source="operating" target="I">
+        <spells>
+          <spell start="2018-09-23" end="2018-09-24"/>
+        </spells>
+      </edge>
+      <edge id="operating cold" source="operating" target="cold">
+        <spells>
+          <spell start="2018-09-08" end="2018-09-09"/>
+        </spells>
+      </edge>
+      <edge id="operating feet" source="operating" target="feet">
+        <spells>
+          <spell start="2018-09-13" end="2018-09-14"/>
+        </spells>
+      </edge>
+      <edge id="pictures wall" source="pictures" target="wall">
+        <spells>
+          <spell start="2018-09-25" end="2018-09-26"/>
+        </spells>
+      </edge>
+      <edge id="room I" source="room" target="I">
+        <spells>
+          <spell start="2018-09-23" end="2018-09-24"/>
+        </spells>
+      </edge>
+      <edge id="room cold" source="room" target="cold">
+        <spells>
+          <spell start="2018-09-08" end="2018-09-09"/>
+        </spells>
+      </edge>
+      <edge id="room feet" source="room" target="feet">
+        <spells>
+          <spell start="2018-09-13" end="2018-09-14"/>
+        </spells>
+      </edge>
+      <edge id="rows suns" source="rows" target="suns">
+        <spells>
+          <spell start="2018-09-06" end="2018-09-07"/>
+        </spells>
+      </edge>
+      <edge id="trip N/A" source="trip" target="N/A">
+        <spells>
+          <spell start="2018-09-13" end="2018-09-14"/>
+        </spells>
+      </edge>
+      <edge id="trip hour" source="trip" target="hour">
+        <spells>
+          <spell start="2018-09-13" end="2018-09-14"/>
+        </spells>
+      </edge>
+      <edge id="tumor I" source="tumor" target="I">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+        </spells>
+      </edge>
+      <edge id="tumor background" source="tumor" target="background">
+        <spells>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+      </edge>
+      <edge id="tumor bone" source="tumor" target="bone">
+        <spells>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+      </edge>
+      <edge id="tumor brain" source="tumor" target="brain">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+          <spell start="2018-09-26" end="2018-09-27"/>
+        </spells>
+      </edge>
+      <edge id="tumor side" source="tumor" target="side">
+        <spells>
+          <spell start="2018-09-15" end="2018-09-16"/>
+        </spells>
+      </edge>
+      <edge id="wall minutes" source="wall" target="minutes">
+        <spells>
+          <spell start="2018-09-27" end="2018-09-28"/>
+        </spells>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

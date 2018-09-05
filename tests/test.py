@@ -13,16 +13,23 @@ class BasicTestSuite(unittest.TestCase):
     """Basic test cases."""
 
     def setUp(self):
-        self.corpus = svo_extraction.Corpus()
+        self.corpus = svo_extraction.Corpus(
+            file_path='./sample/Murphy.txt',
+            output_dir='./sample/out'
+        )
         self.corpus.set_up()
         self.corpus.clean_up()
-        print(self.corpus)
+
+    def testCoref(self):
+        return
 
     def testCoreNlpPipeline(self):
         nlp = svo_extraction.CoreNlpPipeline(corpus=self.corpus)
         # nlp.setUp()
         nlp.interepret_annotation()
-        print(self.corpus.svo_triplets)
+
+    def testVisualization(self):
+        self.corpus.visualize()
 
 
 
@@ -32,6 +39,8 @@ if __name__ == '__main__':
     test_case = BasicTestSuite()
     test_case.setUp()
     test_case.testCoreNlpPipeline()
+    test_case.testVisualization()
+
 
 
 

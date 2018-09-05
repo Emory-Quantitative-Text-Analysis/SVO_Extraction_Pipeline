@@ -5,12 +5,15 @@
 import glob
 import os
 import sys
+import csv
+import hashlib
 import subprocess
-import time
+import datetime
 import inspect
 import traceback
 import re
 import string
+import random
 import logging
 import socket
 import difflib as df
@@ -23,7 +26,8 @@ from tkinter.filedialog import askopenfilename,askdirectory
 from nltk.tree import *
 import nltk.draw
 from nltk.stem import WordNetLemmatizer
-from stanfordcorenlp import StanfordCoreNLP
+
+from .lib.gexf._gexf import Gexf, Spells, Node, Edge
 
 # ========================= Variables and  Models ======================== #
 
@@ -127,6 +131,8 @@ FILE_PATH = None
 OUT_DIR = None
 TMP_OUT_DIR = None
 
+EPOCH = datetime.datetime.today()
+
 # ======== flags variables ========== #
 NER_TAGGED = False
 CLEANED = False
@@ -136,6 +142,7 @@ ACTOR_FILTERED = False
 DO_GEPHI = False
 DO_MAP = False
 DO_NGRAM = False
+
 
 # ===================== Port Checking Utility Method ======================= #
 
@@ -612,8 +619,6 @@ class ParentedTree(nltk.tree.ParentedTree):
         assert self.root() == tree.root()
         return self.deprel[tree.get_index()]
 
-
-
     def get_str(self):
         assert self.height() == 2
         return str(''.join(self.leaves()))
@@ -628,3 +633,78 @@ def read_tree(tree_representation):
 def lemmatize(word,pos=None):
 
     return wnl.lemmatize(word,pos=pos)
+
+# ================== Visualization Mehtod =================== #
+
+def create_gexf(corpus):
+    """
+    Create gexf format file that can be used in Gephi to visualize result dynamically.
+    :param corpus: A Corpus Object
+    :return: gexf file path.
+    """
+    graph_name = corpus.file_name+".gexf"
+    gexf = Gexf(corpus.file_name,"Author")
+    graph = gexf.addGraph("directed","dynamic","SVO graph",timeformat="date")
+    svo_result = corpus.svo_result
+    with open(svo_result) as result:
+        reader = csv.DictReader(result)
+
+        for row in reader:
+            if row["S"] not in graph.nodes:
+                node = Node(graph,row["S"],row["S"],
+                            r = random.randint(0,255),g = random.randint(0,255),b = random.randint(0,255),
+                            size = "50",
+                            spells = [
+                                {"start":(EPOCH+datetime.timedelta(days = int(row["Sentence Index"])))
+                                    .strftime("%Y-%m-%d"),
+                                 "end":(EPOCH+datetime.timedelta(days = int(row["Sentence Index"])+1))
+                                    .strftime("%Y-%m-%d")}
+                            ])
+                graph.nodes[row["S"]] = node
+
+            else:
+                graph.nodes[row["S"]].size = str(int(graph.nodes[row["S"]].size)+50)
+                graph.nodes[row["S"]].spells.append({
+                    "start": (EPOCH + datetime.timedelta(days=int(row["Sentence Index"])))
+                        .strftime("%Y-%m-%d"),
+                    "end": (EPOCH + datetime.timedelta(days=int(row["Sentence Index"]) + 1))
+                        .strftime("%Y-%m-%d")
+                })
+
+            if row["O/A"] not in graph.nodes:
+                node = Node(graph, row["O/A"], row["O/A"],
+                            r=random.randint(0,255), g=random.randint(0,255), b=random.randint(0,255),
+                            size="50",
+                            spells=[
+                                {"start": (EPOCH + datetime.timedelta(days=int(row["Sentence Index"])))
+                                    .strftime("%Y-%m-%d"),
+                                 "end": (EPOCH + datetime.timedelta(days=int(row["Sentence Index"]) + 1))
+                                    .strftime("%Y-%m-%d")}
+                            ])
+                graph.nodes[row["O/A"]] = node
+
+            else:
+                graph.nodes[row["O/A"]].size = str(int(graph.nodes[row["O/A"]].size)+50)
+                graph.nodes[row["O/A"]].spells.append({
+                    "start": (EPOCH + datetime.timedelta(days=int(row["Sentence Index"])))
+                        .strftime("%Y-%m-%d"),
+                    "end": (EPOCH + datetime.timedelta(days=int(row["Sentence Index"]) + 1))
+                        .strftime("%Y-%m-%d")
+                })
+
+            edge_id = row["S"]+" "+row["O/A"]
+            if edge_id not in graph.edges:
+                edge = Edge(graph,edge_id,row["S"],row["O/A"],
+                            spells = [{"start": (EPOCH + datetime.timedelta(days=int(row["Sentence Index"])))
+                                    .strftime("%Y-%m-%d"),
+                                       "end": (EPOCH + datetime.timedelta(days=int(row["Sentence Index"]) + 1))
+                                    .strftime("%Y-%m-%d")}])
+                graph.edges[edge_id] = edge
+            else:
+                graph.edges[edge_id].spells.append(
+                    {"start": (EPOCH + datetime.timedelta(days=int(row["Sentence Index"])))
+                                    .strftime("%Y-%m-%d"),
+                     "end": (EPOCH + datetime.timedelta(days=int(row["Sentence Index"]) + 1))
+                                    .strftime("%Y-%m-%d")})
+    gexf.write(open(os.path.join(corpus.output_dir,graph_name),'wb'))
+    return os.path.join(corpus.output_dir,graph_name)

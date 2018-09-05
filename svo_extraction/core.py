@@ -23,6 +23,7 @@ class Corpus:
         self.file_to_use = file_path
 
         self.svo_triplets = []
+        self.svo_result = None
 
     def set_up(self):
         """
@@ -98,46 +99,29 @@ class Corpus:
         Extract SVO triplets form a Sentence object.
         """
         self.svo_triplets.extend(SVO(sentence).extract())
-        with open(os.path.join(self.output_dir,'SVO.csv'),'w',newline='') as result:
-            fieldnames = ['Sentence Index','S','V','O/A','TIME','LOCATION','PERSON']
-            svo_writer = csv.DictWriter(result,fieldnames =  fieldnames)
+        self.svo_result = os.path.join(self.output_dir,'SVO.csv')
+        with open(self.svo_result,'w',newline='') as result:
+            fieldnames = ['Sentence Index','S','V','O/A','TIME','LOCATION','PERSON','TIME_STAMP']
+            svo_writer = csv.DictWriter(result,fieldnames = fieldnames)
             svo_writer.writeheader()
             for svo in self.svo_triplets:
                 svo_writer.writerow({
                     'Sentence Index':svo[0],
                     'S':svo[1], 'V':svo[2], 'O/A':svo[3],
-                    'TIME':svo[4],'LOCATION':svo[5],'PERSON':svo[6],
+                    'TIME':svo[4],'LOCATION':svo[5],'PERSON':svo[6],'TIME_STAMP':svo[7],
                 })
 
 
     def visualize(self):
         # TODO: Ask which kind of visualization the user want.
-        return
+
+        return helpers.create_gexf(self)
 
     def __str__(self):
         return 'Corpus '+self.file_name+' File using '+self.file_to_use
 
 
 class Coref:
-    def __init__(self,corpus,coref_methods=None):
-
-        """
-        Perform different kinds of co-reference, if user want to use self-defined coref methods,
-        the method need to take an input corpus object and return an output file
-        :param coref_methods: list of names of co-reference methods, predefined is neural-coref
-        """
-        self.corpus = corpus
-        if coref_methods is None:
-            coref_methods = ['statistical','deterministic','neural']
-        self.coref_methods = [x for x in coref_methods]
-        self.coref_files = {}
-
-        for each in coref_methods:
-            coref_file = helpers.stanford_pipeline(self.corpus)
-            self.coref_files[each] = coref_file
-
-        for k,v in self.coref_files.items():
-            logger.info('Coref method: %s, corefed file: %s',k,v)
 
     @classmethod
     def compare(cls, origin_text, corefed_text, coref_method, comparison_method=None):
@@ -267,7 +251,7 @@ class CoreNlpPipeline:
         d = "@@@Sentence"
         # print(conll,conll.split("@@@Sentence")[1::])
         for block in [d+e for e in conll.split("@@@Sentence")[1::]]:
-            print(block.split("@@@"))
+            # print(block.split("@@@"))
             sentence = Sentence(block.split("@@@"))
             self.corpus.extract_svo(sentence)
 
@@ -298,7 +282,7 @@ class Sentence:
         self.conll_block = conll_block
         self.index = self.get_index()
         self.text = self.get_text()
-        self.token_list,self.time_list, self.location_list, self.person_list\
+        self.token_list,self.time_list, self.location_list, self.person_list,self.time_stamp\
             = self.tokenize()
         self.parse_tree = self.get_parser()
         self.dependency = self.set_dependency_label()
@@ -319,7 +303,6 @@ class Sentence:
         sentence = self.conll_block[1].split("\n")[1]
         return sentence
 
-
     def tokenize(self):
         """
         Generate Word object with semantic info tagged.
@@ -327,7 +310,10 @@ class Sentence:
         token_list = []
         time_list = []
         location_list = []
-        person_list =  []
+        person_list = []
+        time_stamp =(helpers.EPOCH+
+                     helpers.datetime.timedelta(days=int(self.index)))\
+                     .strftime("%Y-%m-%d")
         assert self.conll_block[2].split("\n")[0] == "token"
         tokens = self.conll_block[2].split("\n")[1:-1]
         for each in tokens:
@@ -343,7 +329,7 @@ class Sentence:
             elif tag_list[2] == 'PERSON':
                 person_list.append(tag_list[0])
 
-        return token_list, time_list, location_list, person_list
+        return token_list, time_list, location_list, person_list,time_stamp
 
     def get_parser(self):
         """
@@ -403,8 +389,8 @@ class SVO:
         :return:
         """
         verb, subj,tmp_subj, obj, adj = [], [], [], [],[]
-        sentence_index, time,location, persons = \
-            self.sentence.index, self.sentence.time_list, self.sentence.location_list, self.sentence.person_list
+        sentence_index, time,location, persons,time_stamp = \
+            self.sentence.index, self.sentence.time_list, self.sentence.location_list, self.sentence.person_list,self.sentence.time_stamp
         svo = []
         for each in self.sentence.parse_tree.subtrees(lambda t : t.label() == 'VP'):
 
@@ -451,7 +437,7 @@ class SVO:
                         for o in obj:
                             svo.append((sentence_index,
                                         s,v,o,
-                                        time,location,persons))
+                                        time,location,persons,time_stamp))
 
                 if len(verb) != 0:
                     print(subj,verb,obj,adj,flush=True)
@@ -568,5 +554,3 @@ class SVO:
             return deprel.index('acl:relcl')
         return -1
     """
-
-

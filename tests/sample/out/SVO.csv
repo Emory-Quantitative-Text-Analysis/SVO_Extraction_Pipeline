@@ -1,165 +1,131 @@
 Sentence Index,S,V,O/A,TIME,LOCATION,PERSON,TIME_STAMP
-1,It,was,day,"['day', 'Christmas']",[],[],2018-09-05
-1,It,was,Christmas,"['day', 'Christmas']",[],[],2018-09-05
-2,I,was,hospital,"['day', '45', 'years', 'day']",[],[],2018-09-06
-2,I,was,corridor,"['day', '45', 'years', 'day']",[],[],2018-09-06
-2,lights,looming,I,"['day', '45', 'years', 'day']",[],[],2018-09-06
-2,rows,like,suns,"['day', '45', 'years', 'day']",[],[],2018-09-06
-2,lights,like,suns,"['day', '45', 'years', 'day']",[],[],2018-09-06
-2,I,remember,N/A,"['day', '45', 'years', 'day']",[],[],2018-09-06
-2,I,thinking,N/A,"['day', '45', 'years', 'day']",[],[],2018-09-06
-2,day,was,years,"['day', '45', 'years', 'day']",[],[],2018-09-06
-2,day,was,day,"['day', '45', 'years', 'day']",[],[],2018-09-06
-2,day,was,miracles,"['day', '45', 'years', 'day']",[],[],2018-09-06
-3,N/A,had,Christmas,['Christmas'],[],[],2018-09-07
-4,anesthetist,had,I,[],[],[],2018-09-08
-4,operating,feel,cold,[],[],[],2018-09-08
-4,room,feel,cold,[],[],[],2018-09-08
-5,anesthetist,came,N/A,[],[],[],2018-09-09
-5,anesthetist,introduce,anesthetist,[],[],[],2018-09-09
-5,anesthetist,introduce,I,[],[],[],2018-09-09
-5,anesthetist,introduce,cubicle,[],[],[],2018-09-09
-5,I,lay,gurney,[],[],[],2018-09-09
-6,I,held,I,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,I,held,hand,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,I,tried,I,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,I,tried,hand,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,Kathleen,held,I,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,Kathleen,held,hand,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,Kathleen,tried,I,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,Kathleen,tried,hand,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,Kathleen,held,I,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,Kathleen,held,hand,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,Kathleen,tried,I,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,Kathleen,tried,hand,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,I,look,calm,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,Kathleen,look,calm,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-6,Kathleen,look,calm,[],[],"['Kathleen', 'Kathleen']",2018-09-10
-7,corridor,felt,I,[],[],[],2018-09-11
-7,corridor,felt,hospital,[],[],[],2018-09-11
-7,corridor,felt,gown,[],[],[],2018-09-11
-7,corridor,felt,cold,[],[],[],2018-09-11
-8,Everything,was,motion,[],[],[],2018-09-12
-9,distance,was,feet,[],[],[],2018-09-13
-9,operating,was,feet,[],[],[],2018-09-13
-9,room,was,feet,[],[],[],2018-09-13
-9,trip,seemed,N/A,[],[],[],2018-09-13
-9,trip,take,hour,[],[],[],2018-09-13
-10,I,had,plenty,[],[],[],2018-09-14
-10,I,had,time,[],[],[],2018-09-14
-10,I,think,N/A,[],[],[],2018-09-14
-11,I,remembered,N/A,"['Tuesday', 'morning']",[],[],2018-09-15
-11,I,found,N/A,"['Tuesday', 'morning']",[],[],2018-09-15
-11,I,brought,I,"['Tuesday', 'morning']",[],[],2018-09-15
-11,I,brought,gurney,"['Tuesday', 'morning']",[],[],2018-09-15
-11,I,looked,cause,"['Tuesday', 'morning']",[],[],2018-09-15
-11,I,looked,hearing,"['Tuesday', 'morning']",[],[],2018-09-15
-11,I,looked,loss,"['Tuesday', 'morning']",[],[],2018-09-15
-11,I,left,ear,"['Tuesday', 'morning']",[],[],2018-09-15
-11,tumor,nestled,side,"['Tuesday', 'morning']",[],[],2018-09-15
-11,tumor,nestled,I,"['Tuesday', 'morning']",[],[],2018-09-15
-11,tumor,nestled,brain,"['Tuesday', 'morning']",[],[],2018-09-15
-12,I,looked,it,[],[],[],2018-09-16
-12,I,looked,family,[],[],[],2018-09-16
-12,I,looked,book,[],[],[],2018-09-16
-12,I,reading,paralysis,[],[],[],2018-09-16
-12,I,reading,blindness,[],[],[],2018-09-16
-12,I,reading,seizures,[],[],[],2018-09-16
-13,I,remembered,voice,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,I,remembered,Dr,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,I,remembered,John,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,I,remembered,Wright,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,I,explained,N/A,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,was,N/A,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,cut,hole,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,cut,I,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,cut,skull,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,cut,it,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,take,hole,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,take,I,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,take,skull,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,take,it,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,I,remembered,Dr,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,I,remembered,John,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,I,remembered,Wright,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,I,explained,N/A,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,was,N/A,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,going,N/A,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,cut,hole,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,cut,skull,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,cut,it,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,take,hole,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,take,skull,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,he,take,it,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,I,remembered,N/A,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,I,N/A,recital,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,I,N/A,aftereffects,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-13,I,N/A,calm,[],[],"['John', 'Wright', 'John', 'Wright']",2018-09-17
-14,I,recalled,Kathleen,[],[],['Kathleen'],2018-09-18
-14,I,recalled,calm,[],[],['Kathleen'],2018-09-18
-14,Christmas,approached,N/A,[],[],['Kathleen'],2018-09-18
-14,I,graded,papers,[],[],['Kathleen'],2018-09-18
-14,I,graded,students,[],[],['Kathleen'],2018-09-18
-14,I,graded,university,[],[],['Kathleen'],2018-09-18
-14,I,tried,papers,[],[],['Kathleen'],2018-09-18
-14,I,tried,students,[],[],['Kathleen'],2018-09-18
-14,I,tried,university,[],[],['Kathleen'],2018-09-18
-14,I,think,everything,[],[],['Kathleen'],2018-09-18
-14,I,needed,N/A,[],[],['Kathleen'],2018-09-18
-14,I,doing,operation,[],[],['Kathleen'],2018-09-18
-15,I,knew,N/A,[],[],['Kathleen'],2018-09-19
-15,Kathleen,was,worry,[],[],['Kathleen'],2018-09-19
-16,Kathleen,did,N/A,[],[],"['Kathleen', 'Kathleen']",2018-09-20
-16,I,arranged,N/A,[],[],"['Kathleen', 'Kathleen']",2018-09-20
-16,I,have,Kathleen,[],[],"['Kathleen', 'Kathleen']",2018-09-20
-16,I,have,signature,[],[],"['Kathleen', 'Kathleen']",2018-09-20
-16,I,added,checking,[],[],"['Kathleen', 'Kathleen']",2018-09-20
-16,I,added,account,[],[],"['Kathleen', 'Kathleen']",2018-09-20
-16,I,added,publishing,[],[],"['Kathleen', 'Kathleen']",2018-09-20
-16,I,added,business,[],[],"['Kathleen', 'Kathleen']",2018-09-20
-16,I,ran,university,[],[],"['Kathleen', 'Kathleen']",2018-09-20
-16,I,ran,time,[],[],"['Kathleen', 'Kathleen']",2018-09-20
-17,I,remembered,Christmas,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']",2018-09-21
-17,I,remembered,Day,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']",2018-09-21
-17,I,remembered,Debbie,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']",2018-09-21
-17,Christmas,trying,N/A,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']",2018-09-21
-17,Day,trying,N/A,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']",2018-09-21
-17,Debbie,trying,N/A,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']",2018-09-21
-17,Christmas,act,N/A,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']",2018-09-21
-17,Day,act,N/A,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']",2018-09-21
-17,Debbie,act,N/A,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']",2018-09-21
-17,it,were,day,"['Christmas', 'Day', 'day']",[],"['Sheila', 'Brian', 'Brian', 'Kathleen', 'Debbie']",2018-09-21
-18,I,felt,gurney,[],[],[],2018-09-22
-18,I,felt,shoulder,[],[],[],2018-09-22
-18,I,felt,way,[],[],[],2018-09-22
-18,I,felt,doors,[],[],[],2018-09-22
-18,I,felt,I,[],[],[],2018-09-22
-19,glare,surprised,I,[],[],[],2018-09-23
-19,operating,surprised,I,[],[],[],2018-09-23
-19,room,surprised,I,[],[],[],2018-09-23
-20,N/A,did,noise,[],[],[],2018-09-24
-20,chatter,rattle,N/A,[],[],[],2018-09-24
-20,clatter,rattle,N/A,[],[],[],2018-09-24
-21,I,saw,Dr,[],[],"['John', 'Wright']",2018-09-25
-21,I,saw,John,[],[],"['John', 'Wright']",2018-09-25
-21,I,saw,Wright,[],[],"['John', 'Wright']",2018-09-25
-21,I,explained,N/A,[],[],"['John', 'Wright']",2018-09-25
-21,he,was,N/A,[],[],"['John', 'Wright']",2018-09-25
-21,he,cut,hole,[],[],"['John', 'Wright']",2018-09-25
-21,he,cut,skull,[],[],"['John', 'Wright']",2018-09-25
-21,he,cut,it,[],[],"['John', 'Wright']",2018-09-25
-21,he,take,hole,[],[],"['John', 'Wright']",2018-09-25
-21,he,take,skull,[],[],"['John', 'Wright']",2018-09-25
-21,he,take,it,[],[],"['John', 'Wright']",2018-09-25
-21,I,remembered,N/A,[],[],"['John', 'Wright']",2018-09-25
-21,I,looking,pictures,[],[],"['John', 'Wright']",2018-09-25
-21,pictures,suspended,wall,[],[],"['John', 'Wright']",2018-09-25
-22,I,had,them,[],[],[],2018-09-26
-22,I,had,I,[],[],[],2018-09-26
-22,I,had,skull,[],[],[],2018-09-26
-22,I,had,tumor,[],[],[],2018-09-26
-22,tumor,standing,background,[],[],[],2018-09-26
-22,tumor,standing,brain,[],[],[],2018-09-26
-22,tumor,standing,bone,[],[],[],2018-09-26
-23,clock,said,minutes,"['10', 'minutes']",[],[],2018-09-27
-23,wall,said,minutes,"['10', 'minutes']",[],[],2018-09-27
+1,It,was,day,"['day', 'Christmas']",,,2018-09-10
+1,It,was,Christmas,"['day', 'Christmas']",,,2018-09-10
+2,I,was,hospital,"['day', '45', 'years', 'day']",,,2018-09-11
+2,I,was,corridor,"['day', '45', 'years', 'day']",,,2018-09-11
+2,lights,looming,I,"['day', '45', 'years', 'day']",,,2018-09-11
+2,rows,like,suns,"['day', '45', 'years', 'day']",,,2018-09-11
+2,lights,like,suns,"['day', '45', 'years', 'day']",,,2018-09-11
+2,day,was,years,"['day', '45', 'years', 'day']",,,2018-09-11
+2,day,was,day,"['day', '45', 'years', 'day']",,,2018-09-11
+2,day,was,miracles,"['day', '45', 'years', 'day']",,,2018-09-11
+4,anesthetist,had,I,[],,,2018-09-13
+4,operating,feel,cold,[],,,2018-09-13
+4,room,feel,cold,[],,,2018-09-13
+5,anesthetist,introduce,anesthetist,[],,,2018-09-14
+5,anesthetist,introduce,I,[],,,2018-09-14
+5,anesthetist,introduce,cubicle,[],,,2018-09-14
+5,I,lay,gurney,[],,,2018-09-14
+6,I,held,I,[],,Kathleen Kathleen,2018-09-15
+6,I,held,hand,[],,Kathleen Kathleen,2018-09-15
+6,I,tried,I,[],,Kathleen Kathleen,2018-09-15
+6,I,tried,hand,[],,Kathleen Kathleen,2018-09-15
+6,Kathleen,held,I,[],,Kathleen Kathleen,2018-09-15
+6,Kathleen,held,hand,[],,Kathleen Kathleen,2018-09-15
+6,Kathleen,tried,I,[],,Kathleen Kathleen,2018-09-15
+6,Kathleen,tried,hand,[],,Kathleen Kathleen,2018-09-15
+6,Kathleen,held,I,[],,Kathleen Kathleen,2018-09-15
+6,Kathleen,held,hand,[],,Kathleen Kathleen,2018-09-15
+6,Kathleen,tried,I,[],,Kathleen Kathleen,2018-09-15
+6,Kathleen,tried,hand,[],,Kathleen Kathleen,2018-09-15
+6,I,look,calm,[],,Kathleen Kathleen,2018-09-15
+6,Kathleen,look,calm,[],,Kathleen Kathleen,2018-09-15
+6,Kathleen,look,calm,[],,Kathleen Kathleen,2018-09-15
+7,corridor,felt,I,[],,,2018-09-16
+7,corridor,felt,hospital,[],,,2018-09-16
+7,corridor,felt,gown,[],,,2018-09-16
+7,corridor,felt,cold,[],,,2018-09-16
+8,Everything,was,motion,[],,,2018-09-17
+9,distance,was,feet,[],,,2018-09-18
+9,operating,was,feet,[],,,2018-09-18
+9,room,was,feet,[],,,2018-09-18
+9,trip,take,hour,[],,,2018-09-18
+10,I,had,plenty,[],,,2018-09-19
+10,I,had,time,[],,,2018-09-19
+11,I,brought,I,"['Tuesday', 'morning']",,,2018-09-20
+11,I,brought,gurney,"['Tuesday', 'morning']",,,2018-09-20
+11,I,looked,cause,"['Tuesday', 'morning']",,,2018-09-20
+11,I,looked,hearing,"['Tuesday', 'morning']",,,2018-09-20
+11,I,looked,loss,"['Tuesday', 'morning']",,,2018-09-20
+11,I,left,ear,"['Tuesday', 'morning']",,,2018-09-20
+11,tumor,nestled,side,"['Tuesday', 'morning']",,,2018-09-20
+11,tumor,nestled,I,"['Tuesday', 'morning']",,,2018-09-20
+11,tumor,nestled,brain,"['Tuesday', 'morning']",,,2018-09-20
+12,I,looked,it,[],,,2018-09-21
+12,I,looked,family,[],,,2018-09-21
+12,I,looked,book,[],,,2018-09-21
+12,I,reading,paralysis,[],,,2018-09-21
+12,I,reading,blindness,[],,,2018-09-21
+12,I,reading,seizures,[],,,2018-09-21
+13,I,remembered,voice,[],,John Wright John Wright,2018-09-22
+13,I,remembered,Dr,[],,John Wright John Wright,2018-09-22
+13,I,remembered,John,[],,John Wright John Wright,2018-09-22
+13,I,remembered,Wright,[],,John Wright John Wright,2018-09-22
+13,he,cut,hole,[],,John Wright John Wright,2018-09-22
+13,he,cut,I,[],,John Wright John Wright,2018-09-22
+13,he,cut,skull,[],,John Wright John Wright,2018-09-22
+13,he,cut,it,[],,John Wright John Wright,2018-09-22
+13,he,take,hole,[],,John Wright John Wright,2018-09-22
+13,he,take,I,[],,John Wright John Wright,2018-09-22
+13,he,take,skull,[],,John Wright John Wright,2018-09-22
+13,he,take,it,[],,John Wright John Wright,2018-09-22
+13,I,remembered,Dr,[],,John Wright John Wright,2018-09-22
+13,I,remembered,John,[],,John Wright John Wright,2018-09-22
+13,I,remembered,Wright,[],,John Wright John Wright,2018-09-22
+13,he,cut,hole,[],,John Wright John Wright,2018-09-22
+13,he,cut,skull,[],,John Wright John Wright,2018-09-22
+13,he,cut,it,[],,John Wright John Wright,2018-09-22
+13,he,take,hole,[],,John Wright John Wright,2018-09-22
+13,he,take,skull,[],,John Wright John Wright,2018-09-22
+13,he,take,it,[],,John Wright John Wright,2018-09-22
+14,I,recalled,Kathleen,[],,Kathleen,2018-09-23
+14,I,recalled,calm,[],,Kathleen,2018-09-23
+14,I,graded,papers,[],,Kathleen,2018-09-23
+14,I,graded,students,[],,Kathleen,2018-09-23
+14,I,graded,university,[],,Kathleen,2018-09-23
+14,I,tried,papers,[],,Kathleen,2018-09-23
+14,I,tried,students,[],,Kathleen,2018-09-23
+14,I,tried,university,[],,Kathleen,2018-09-23
+14,I,think,everything,[],,Kathleen,2018-09-23
+14,I,doing,operation,[],,Kathleen,2018-09-23
+15,Kathleen,was,worry,[],,Kathleen,2018-09-24
+16,I,have,Kathleen,[],,Kathleen Kathleen,2018-09-25
+16,I,have,signature,[],,Kathleen Kathleen,2018-09-25
+16,I,added,checking,[],,Kathleen Kathleen,2018-09-25
+16,I,added,account,[],,Kathleen Kathleen,2018-09-25
+16,I,added,publishing,[],,Kathleen Kathleen,2018-09-25
+16,I,added,business,[],,Kathleen Kathleen,2018-09-25
+16,I,ran,university,[],,Kathleen Kathleen,2018-09-25
+16,I,ran,time,[],,Kathleen Kathleen,2018-09-25
+17,I,remembered,Christmas,"['Christmas', 'Day', 'day']",,Sheila Brian Brian Kathleen Debbie,2018-09-26
+17,I,remembered,Day,"['Christmas', 'Day', 'day']",,Sheila Brian Brian Kathleen Debbie,2018-09-26
+17,I,remembered,Debbie,"['Christmas', 'Day', 'day']",,Sheila Brian Brian Kathleen Debbie,2018-09-26
+17,it,were,day,"['Christmas', 'Day', 'day']",,Sheila Brian Brian Kathleen Debbie,2018-09-26
+18,I,felt,gurney,[],,,2018-09-27
+18,I,felt,shoulder,[],,,2018-09-27
+18,I,felt,way,[],,,2018-09-27
+18,I,felt,doors,[],,,2018-09-27
+18,I,felt,I,[],,,2018-09-27
+19,glare,surprised,I,[],,,2018-09-28
+19,operating,surprised,I,[],,,2018-09-28
+19,room,surprised,I,[],,,2018-09-28
+21,I,saw,Dr,[],,John Wright,2018-09-30
+21,I,saw,John,[],,John Wright,2018-09-30
+21,I,saw,Wright,[],,John Wright,2018-09-30
+21,he,cut,hole,[],,John Wright,2018-09-30
+21,he,cut,skull,[],,John Wright,2018-09-30
+21,he,cut,it,[],,John Wright,2018-09-30
+21,he,take,hole,[],,John Wright,2018-09-30
+21,he,take,skull,[],,John Wright,2018-09-30
+21,he,take,it,[],,John Wright,2018-09-30
+21,I,looking,pictures,[],,John Wright,2018-09-30
+21,pictures,suspended,wall,[],,John Wright,2018-09-30
+22,I,had,them,[],,,2018-10-01
+22,I,had,I,[],,,2018-10-01
+22,I,had,skull,[],,,2018-10-01
+22,I,had,tumor,[],,,2018-10-01
+22,tumor,standing,background,[],,,2018-10-01
+22,tumor,standing,brain,[],,,2018-10-01
+22,tumor,standing,bone,[],,,2018-10-01
+23,clock,said,minutes,"['10', 'minutes']",,,2018-10-02
+23,wall,said,minutes,"['10', 'minutes']",,,2018-10-02

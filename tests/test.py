@@ -36,10 +36,14 @@ class BasicTestSuite(unittest.TestCase):
 
 
 if __name__ == '__main__':
+
     test_case = BasicTestSuite()
     test_case.setUp()
     test_case.testCoreNlpPipeline()
     test_case.testVisualization()
+
+
+
 
 
 

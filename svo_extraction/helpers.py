@@ -20,15 +20,17 @@ import difflib as df
 import tkinter as tk
 
 from contextlib import closing
-from tkinter import Tk,messagebox
+from tkinter import Tk,messagebox,Entry, Label, Button
 from tkinter.filedialog import askopenfilename,askdirectory
 
 from nltk.tree import *
 import nltk.draw
 from nltk.stem import WordNetLemmatizer
 
-from .lib.gexf._gexf import Gexf, Spells, Node, Edge
+import simplekml
+from geopy.geocoders import Nominatim
 
+from .lib.gexf._gexf import Gexf, Spells, Node, Edge
 # ========================= Variables and  Models ======================== #
 
 # ========== dir variables ========== #
@@ -124,6 +126,8 @@ def exception(_logger):
 # ========== set up NLP models ======== #
 wnl = WordNetLemmatizer()
 
+# ========== set up Geolocator ======== #
+geolocator = Nominatim()
 
 # ======== data variables =========== #
 FILE_NAME = None
@@ -142,7 +146,7 @@ ACTOR_FILTERED = False
 DO_GEPHI = False
 DO_MAP = False
 DO_NGRAM = False
-
+DEFAULT_LOCATION = None
 
 # ===================== Port Checking Utility Method ======================= #
 
@@ -383,6 +387,30 @@ def show_message(msg = '', level = 'info'):
         messagebox.showwarning("Warning",msg)
     elif level == 'error':
         messagebox.showerror("Error",msg)
+
+# ============= input box ============== #
+
+def return_input(E1,top):
+    global DEFAULT_LOCATION
+    DEFAULT_LOCATION = E1.get()
+    top.destroy()
+
+
+def set_default_location(msg = ''):
+    """
+    Pop up a input entry
+    :param msg: message to show
+    :return: input
+    """
+    top = Tk()
+    L1 = Label(top, text=msg)
+    L1.pack(side=tk.LEFT)
+    E1 = Entry(top, bd=5)
+    E1.pack(side=tk.RIGHT)
+    b = Button(top, text='okay', command=lambda: return_input(E1,top))
+    b.pack(side='bottom')
+    
+    top.mainloop()
 # ========================== Utility Methods ============================= #
 
 # ======== split into sentences ============ #
@@ -494,6 +522,13 @@ def is_title(sentence):
         # print sentence
         return True
 
+def is_location(location):
+    """
+    Check if location can be geocoded
+    :param location: String representation of the Location Name
+    :return: Boolean whther the location can be geocoded
+    """
+    return geolocator.geocode(location) is not None
 
 # =========================Coref Utility Method======================== #
 
@@ -636,6 +671,7 @@ def lemmatize(word,pos=None):
 
 # ================== Visualization Mehtod =================== #
 
+
 def create_gexf(corpus):
     """
     Create gexf format file that can be used in Gephi to visualize result dynamically.
@@ -698,7 +734,8 @@ def create_gexf(corpus):
                             spells = [{"start": (EPOCH + datetime.timedelta(days=int(row["Sentence Index"])))
                                     .strftime("%Y-%m-%d"),
                                        "end": (EPOCH + datetime.timedelta(days=int(row["Sentence Index"]) + 1))
-                                    .strftime("%Y-%m-%d")}])
+                                    .strftime("%Y-%m-%d")}],
+                            label = row["V"])
                 graph.edges[edge_id] = edge
             else:
                 graph.edges[edge_id].spells.append(
@@ -708,3 +745,26 @@ def create_gexf(corpus):
                                     .strftime("%Y-%m-%d")})
     gexf.write(open(os.path.join(corpus.output_dir,graph_name),'wb'))
     return os.path.join(corpus.output_dir,graph_name)
+
+def create_kml(corpus):
+    """
+    Create kml file that can be read by GoogleEarth and generate dynamic GoogleEarth Object
+    :param corpus: A Corpus Object with SVO result already created
+    :return: The path to the KML file
+    """
+    global DEFAULT_LOCATION
+    kml = simplekml.Kml()
+    with open(corpus.svo_result) as result:
+        reader = csv.DictReader(result)
+        if next(reader)["LOCATION"] == "":
+            set_default_location("Please enter a default location: ")
+        for line in reader:
+            if line["LOCATION"] != "":
+                DEFAULT_LOCATION = line["LOCATION"]
+            print(DEFAULT_LOCATION,geolocator.geocode(DEFAULT_LOCATION).longitude)
+            pnt = kml.newpoint(name = str(line["S"] + " "+ line["V"]+ " "+line["O/A"]))
+            pnt.coords = [(geolocator.geocode(DEFAULT_LOCATION).latitude,
+                          geolocator.geocode(DEFAULT_LOCATION).longitude)]
+            pnt.timespan.begin = line["TIME_STAMP"]
+            pnt.timespan.end = line["TIME_STAMP"]
+    kml.save(os.path.join(corpus.output_dir,corpus.file_name+".kml"))

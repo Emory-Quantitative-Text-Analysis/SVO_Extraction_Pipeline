@@ -108,14 +108,14 @@ class Corpus:
                 svo_writer.writerow({
                     'Sentence Index':svo[0],
                     'S':svo[1], 'V':svo[2], 'O/A':svo[3],
-                    'TIME':svo[4],'LOCATION':svo[5],'PERSON':svo[6],'TIME_STAMP':svo[7],
+                    'TIME':svo[4],'LOCATION':svo[5] ,'PERSON':svo[6],'TIME_STAMP':svo[7],
                 })
 
 
     def visualize(self):
         # TODO: Ask which kind of visualization the user want.
 
-        return helpers.create_gexf(self)
+        return helpers.create_gexf(self),helpers.create_kml(self)
 
     def __str__(self):
         return 'Corpus '+self.file_name+' File using '+self.file_to_use
@@ -328,8 +328,10 @@ class Sentence:
                 location_list.append(tag_list[0])
             elif tag_list[2] == 'PERSON':
                 person_list.append(tag_list[0])
-
-        return token_list, time_list, location_list, person_list,time_stamp
+        return token_list, time_list,\
+               " ".join(location_list), \
+               " ".join(person_list),\
+               time_stamp
 
     def get_parser(self):
         """
@@ -428,9 +430,9 @@ class SVO:
                                 verb[v_i] = None
                     v_i += 1
 
-                subj = [e.get_str() for e in subj] if len(subj) != 0 else ['N/A']
-                obj = [e.get_str() for e in obj+adj] if (len(obj)!= 0 or len(adj)!=0) else ['N/A']
-                verb = [e.get_str() for e in verb if e] if len(verb) != 0 else ['N/A']
+                subj = [e.get_str() for e in subj]
+                obj = [e.get_str() for e in obj+adj]
+                verb = [e.get_str() for e in verb if e]
 
                 for s in subj:
                     for v in verb:
